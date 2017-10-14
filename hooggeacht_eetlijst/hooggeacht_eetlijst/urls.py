@@ -22,11 +22,13 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', views.HomePage.as_view(), name='home'),
+    url(r'^$', views.HomePage.as_view(), name='home'),
+    url(r'^thanks/', views.ThanksPage.as_view(), name='thanks'),
+    url(r'', include('accounts.urls', namespace='accounts')),
 ]
 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
         url(r'^__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+    ]+urlpatterns
