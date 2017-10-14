@@ -1,0 +1,16 @@
+h1 {
+  font: 300% Helvetica, sans-serif;
+  color: #F95759;
+  size: 3em; }
+
+.navbar .navbar-brand {
+  height: 100%; }
+  .navbar .navbar-brand img {
+    height: 60px; }
+
+.navbar .navbar-collapse .dropdown-toggle {
+  height: 100%; }
+  .navbar .navbar-collapse .dropdown-toggle img {
+    height: 40px; }
+
+/*# sourceMappingURL=/static/scss/style.css.map */

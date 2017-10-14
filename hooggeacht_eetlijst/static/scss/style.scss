@@ -1,3 +1,29 @@
-h1{
-  color:blue;
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #F95759;
+$navbar-height: 40px;
+
+h1 {
+  font:  300% $font-stack;
+  color: $primary-color;
+  size: 3em;
+}
+
+.navbar{
+  .navbar-brand{
+    height: 100%;
+    img{
+      height: $navbar-height*1.5;
+    }
+  }
+  .navbar-collapse{
+
+    .dropdown-toggle{
+      height: 100%;
+
+        img{
+          height: $navbar-height;
+        }
+
+    }
+  }
 }

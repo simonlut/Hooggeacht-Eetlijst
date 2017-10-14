@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "D:/Dropbox/Projecten/CODING/Django/Hooggeacht/hooggeacht_eetlijst/static/scss/style.css",
+	"sources": [
+		"D:/Dropbox/Projecten/CODING/Django/Hooggeacht/hooggeacht_eetlijst/static/scss/style.scss"
+	],
+	"names": [],
+	"mappings": "AAIA,AAAA,EAAE,CAAC;EACD,IAAI,EAAG,IAAI,CALG,SAAS,EAAE,UAAU;EAMnC,KAAK,EALS,OAAO;EAMrB,IAAI,EAAE,GAAG,GACV;;AAED,AACE,OADK,CACL,aAAa,CAAA;EACX,MAAM,EAAE,IAAI,GAIb;EANH,AAGI,OAHG,CACL,aAAa,CAEX,GAAG,CAAA;IACD,MAAM,EAAE,IAAkB,GAC3B;;AALL,AASI,OATG,CAOL,gBAAgB,CAEd,gBAAgB,CAAA;EACd,MAAM,EAAE,IAAI,GAMb;EAhBL,AAYQ,OAZD,CAOL,gBAAgB,CAEd,gBAAgB,CAGZ,GAAG,CAAA;IACD,MAAM,EArBA,IAAI,GAsBX"
+}
