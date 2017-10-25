@@ -9,8 +9,3 @@ class Post(models.Model):
     extra_eater_veg = #Number slider
     extra_eater_allergy = models.CharField(max_length=124, blank=True)
     submit_time =
-
-class ExtraEaterPreference(modes.Model):
-    extra_eater = models.ForeignKey(Post, on_delete=models.CASCADE)
-    vegetarian =  models.BooleanField(blank = True)
-    allergy = models.CharField(max_length=30, blank=True)

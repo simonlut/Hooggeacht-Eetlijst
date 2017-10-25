@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<h2>HOI</h2>
+<h1>{{attachment.at_first_name}} {{attachment.at_last_name}}</h1>
+<p>Vegeterian: {{attachment.at_veg}}</p>
+<p>Allergies: {{attachment.at_allergy}}</p>
+<a class="btn btn-secondary" href="{% url 'accounts:attachment_update' pk=attachment.pk %}">Edit</a>
+<a class="btn btn-danger" href="{% url 'accounts:attachment_delete' pk=attachment.pk %}">Delete</a>
+{% endblock %}

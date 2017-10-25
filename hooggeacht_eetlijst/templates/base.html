@@ -31,12 +31,12 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'accounts:logout' %}">Vandaag</a>
+            <a class="nav-link" href="{% url 'accounts:attachment_create' %}">Aanhang</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts:profile' %}">Geschiedenis</a>
@@ -53,6 +53,7 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img src="{% static 'img/account_icon.png' %}" alt="" class="aardbei rounded-circle img-fluid" ></a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="{% url 'accounts:profile' %}">Account instellingen</a>
+              <a class="dropdown-item" href="{% url 'accounts:attachment_list' %}">Aanhang beheren</a>
               <a class="dropdown-item" href="{% url 'accounts:logout' %}">Uitloggen</a>
             </div>
           </div>

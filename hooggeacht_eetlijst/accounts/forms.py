@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import User
 from django.contrib.auth.forms import UserCreationForm
-from accounts.models import Profile
+from accounts.models import Profile, Attachment
 from django import forms
 
 class ProfileForm(forms.ModelForm):
@@ -13,7 +13,7 @@ class UserForm(UserCreationForm):
     class Meta:
         fields = ('email','password1','password2','username',)
         model = get_user_model()
-    # 
+    #
     # def __init__(self,*args,**kwargs):
     #     super().__init__(*args,**kwargs)
     #     self.fields['username'].label = ''
@@ -24,3 +24,8 @@ class UserForm(UserCreationForm):
     #     self.fields['email'].help_text = ""
     #     self.fields['password1'].help_text = ""
     #     self.fields['password2'].help_text = ""
+
+class AttachmentForm(forms.ModelForm):
+    class Meta:
+        fields = ('at_first_name','at_last_name','at_veg','at_allergy')
+        model = Attachment
