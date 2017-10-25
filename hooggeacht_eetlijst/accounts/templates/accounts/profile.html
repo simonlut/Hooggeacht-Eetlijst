@@ -3,12 +3,15 @@
 {% load staticfiles %}
 
 {% block content %}
+
 <div class="container form-container">
-  <h2>Inloggen</h2>
+  <h2>Aanmelden</h2>
   <form method="POST">
       {% csrf_token %}
-      {% bootstrap_form form %}
-      <input type="submit" class="btn btn-primary" value="Inloggen">
+      {{ user_form.as_p}}
+      {{ profile_form.as_p}}
+      <input type="submit" class="btn btn-primary" value="Aanmelden">
   </form>
 </div>
+
 {% endblock %}

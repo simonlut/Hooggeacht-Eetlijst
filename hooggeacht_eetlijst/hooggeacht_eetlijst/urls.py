@@ -24,8 +24,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.HomePage.as_view(), name='home'),
     url(r'^thanks/', views.ThanksPage.as_view(), name='thanks'),
-    url(r'', include('accounts.urls', namespace='accounts')),
-    url(r"^account/", include("account.urls")),
+    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:
