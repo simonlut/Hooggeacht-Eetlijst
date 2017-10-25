@@ -6,3 +6,6 @@ class HomePage(TemplateView):
 
 class ThanksPage(TemplateView):
     template_name = 'thanks.html'
+
+class ProfileSucces(TemplateView):
+    template_name = 'profile_succes.html'

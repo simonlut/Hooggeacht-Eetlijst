@@ -1,6 +1,6 @@
 from django.contrib.auth import login, logout
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -38,7 +38,7 @@ def update_profile(request):
             user_form.save()
             profile_form.save()
             messages.success(request, ('Your profile was successfully updated!'))
-            return redirect('home')
+            return redirect('profile_succes')
         else:
             messages.error(request, ('Please correct the error below.'))
     else:
