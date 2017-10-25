@@ -16,7 +16,3 @@ class AccountSettings(LoginRequiredMixin,CreateView):
     model = Profile
 
     template_name = "accounts/account_settings.html"
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super(ProfileForm, self).form_valid(form)
