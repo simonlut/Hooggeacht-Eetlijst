@@ -12,6 +12,13 @@ from django.db import transaction
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth import get_user_model
+
+
+class OwnObjectsMixin():
+    def get_queryset(self):
+        user = self.request.user
+        return super(OwnObjectsMixin, self).get_queryset().filter(author=user)
 
 class SignUp(CreateView):
     form_class = UserForm
@@ -42,7 +49,7 @@ def update_profile(request):
 
 class AttachmentCreateView(LoginRequiredMixin, CreateView):
     login_url = '/accounts/login/'
-    redirect_field_name = 'accounts/attachment_detail.html'
+    redirect_field_name = 'accounts/attachment_list.html'
 
     form_class = AttachmentForm
 
@@ -52,18 +59,25 @@ class AttachmentCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super(AttachmentCreateView, self).form_valid(form)
 
-class AttachmentListView(ListView):
-    model = Attachment
-
-class AttachmentDetailView(LoginRequiredMixin, DetailView):
+class AttachmentListView(LoginRequiredMixin, ListView):
     login_url = '/accounts/login/'
-    redirect_field_name = 'accounts/attachment_detail.html'
+    redirect_field_name = 'accounts/attachment_list.html'
 
     model = Attachment
+
+    def get_queryset(self):
+        return Attachment.objects.filter(author=self.request.user)
+
+class AttachmentDetailView(OwnObjectsMixin, LoginRequiredMixin, DetailView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'accounts/attachment_list.html'
+
+    model = Attachment
+
 
 class AttachmentUpdateView(LoginRequiredMixin, UpdateView):
     login_url = '/accounts/login/'
-    redirect_field_name = 'accounts/account_detail.html'
+    redirect_field_name = 'accounts/attachment_list.html'
 
     form_class = AttachmentForm
 
@@ -71,4 +85,4 @@ class AttachmentUpdateView(LoginRequiredMixin, UpdateView):
 
 class AttachmentDeleteView(LoginRequiredMixin, DeleteView):
     model = Attachment
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('accounts:attachment_list')

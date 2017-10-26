@@ -17,5 +17,3 @@ urlpatterns = [
     url(r'^aanhang/(?P<pk>\d+)/aanpassen/$', views.AttachmentUpdateView.as_view(), name="attachment_update"),
     url(r'^aanhang/(?P<pk>\d+)/verwijder/$', views.AttachmentDeleteView.as_view(), name="attachment_delete"),
 ]
-
-    # url(r'account_settings/$', views.AccountSettings.as_view(), name="accountsettings"),
