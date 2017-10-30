@@ -2,6 +2,8 @@
 {% block content %}
 <h2>{{ user.profile.housename }}</h2>
 <h4>{{ user.username }}</h4>
+<a href="{% url 'posts:posteater_create' %}"><button type="button" name="button" class="btn btn-primary">Mee-eten</button></a>
+<h3>Wie eten mee?</h3>
 
 <ul>
   <li>Allergiën: {{ user.allergy }}</li>

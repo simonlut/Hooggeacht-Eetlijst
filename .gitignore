@@ -1,2 +1,3 @@
 venv/
 hooggeacht_eetlijst/hoogeacht_eetlijst/settings.py/
+secret_key.txt

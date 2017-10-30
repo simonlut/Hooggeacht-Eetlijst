@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import CreateView, TemplateView, DeleteView, UpdateView, DetailView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from accounts.models import OwnObjectsMixin
+from accounts.views import OwnObjectsMixin
 
 from posts.forms import PostEaterForm, PostCookForm
 from posts.models import PostEater, PostCook
@@ -26,7 +26,7 @@ class PostEaterCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super(PostEaterCreateView, self).form_valid(form)
 
-class PostEaterDetailView(OwnObjectsMixin, LoginRequiredMixin, DetailView):
+class PostEaterDetailView( LoginRequiredMixin, DetailView):
     login_url = '/accounts/login/'
     redirect_field_name = 'posts/posteater_form.html'
 
