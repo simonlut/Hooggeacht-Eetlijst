@@ -44,3 +44,9 @@ class PostEaterUpdateView(LoginRequiredMixin, UpdateView):
 class PostEaterDeleteView(LoginRequiredMixin, DeleteView):
     model = PostEater
     success_url = reverse_lazy('home')
+
+class PostEaterListView( LoginRequiredMixin, ListView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'posts/posteater_form.html'
+
+    model = PostEater

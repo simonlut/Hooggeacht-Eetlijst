@@ -5,7 +5,8 @@
 {% block content %}
 
 <div class="container form-container">
-  <h2>Aanmelden</h2>
+  <h2>{{user.profile.housename|title}}</h2>
+  <h5>{{user.username|title}}</h5>
   <form method="POST">
       {% csrf_token %}
       {{ user_form.as_p}}

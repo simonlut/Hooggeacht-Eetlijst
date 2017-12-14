@@ -1,6 +1,74 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #F95759;
 $navbar-height: 40px;
+$box-shadow: 0 7px 14px #ccc;
+
+// Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575px) { ... }
+
+// Small devices (landscape phones, less than 768px)
+// @media (max-width: 767px) { ... }
+
+// Medium devices (tablets, less than 992px)
+// @media (max-width: 991px) { ... }
+
+// Large devices (desktops, less than 1200px)
+// @media (max-width: 1199px) { ... }
+
+body{
+// background-color: grey;
+}
+
+.content-days{
+  margin: 60px;
+  .slick-list{
+    padding: 30px;
+  }
+  .day:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 9px 19px #ccc;
+
+  }
+  .day{
+    box-shadow: $box-shadow;
+    transition: all 0.2s ease-in-out;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 10px;
+
+    h1{
+      padding: 10px 10px 0 10px;
+      color: #000;
+      display: flex;
+      justify-content: center;
+      font-size: 2.5em;
+    }
+    h3{
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 12pt;
+      display: flex;
+      justify-content: center;
+    }
+
+    .person{
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      .pers-icon{
+        width: 50px;
+        padding: 10px 10px 10px 10px;
+      }
+
+      img{
+        float:left;
+      }
+      .name{
+        margin-top: auto;
+      }
+    }
+  }
+}
 
 h1 {
   font:  300% $font-stack;
@@ -23,7 +91,23 @@ h1 {
         img{
           height: $navbar-height;
         }
-        
+
     }
+  }
+}
+
+.row{
+  padding:20px;
+  @media (max-width: 575px){
+    padding: 0;
+  }
+
+.col-sm-2{
+  padding: 20px;
+  .content{
+    padding:20px;
+    border: solid 2px red;
+
+  }
   }
 }

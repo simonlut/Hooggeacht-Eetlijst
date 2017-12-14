@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <h2>{{ user.profile.housename }}</h2>
 <h4>{{ user.username }}</h4>
@@ -10,4 +11,92 @@
   <li>Vegatariër? {{ user.profile.vegetarian }}</li>
   <li>Voorkeur voor eten: {{ user.profile.food_preference }}</li>
 </ul>
+<div class="content-days">
+  {# {% for post in posts  %}#}
+  <div class="day">
+    <h1>Monday</h1>
+    <h3>14 februari 2017</h3>
+    <div class="person">
+      <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+      <p class="name">Jouk</p>
+    </div>
+    <div class="person">
+      <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+      <p class="name">Jouk</p>
+    </div>
+  </div>
+  <div class="day">
+    <h1>Monday</h1>
+    <h3>14 februari 2017</h3>
+    <div class="person">
+      <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+      <p class="name">Jouk</p>
+    </div>
+    <div class="person">
+      <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+      <p class="name">Jouk</p>
+    </div>
+  </div>  <div class="day">
+      <h1>Monday</h1>
+      <h3>14 februari 2017</h3>
+      <div class="person">
+        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+        <p class="name">Jouk</p>
+      </div>
+      <div class="person">
+        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+        <p class="name">Jouk</p>
+      </div>
+    </div>
+    <div class="day">
+        <h1>Monday</h1>
+        <h3>14 februari 2017</h3>
+        <div class="person">
+          <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+          <p class="name">Jouk</p>
+        </div>
+        <div class="person">
+          <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+          <p class="name">Jouk</p>
+        </div>
+      </div>
+      <div class="day">
+          <h1>Monday</h1>
+          <h3>14 februari 2017</h3>
+          <div class="person">
+            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+            <p class="name">Jouk</p>
+          </div>
+          <div class="person">
+            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+            <p class="name">Jouk</p>
+          </div>
+        </div>
+        <div class="day">
+            <h1>Monday</h1>
+            <h3>14 februari 2017</h3>
+            <div class="person">
+              <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+              <p class="name">Jouk</p>
+            </div>
+            <div class="person">
+              <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+              <p class="name">Jouk</p>
+            </div>
+          </div>
+          <div class="day">
+              <h1>Monday</h1>
+              <h3>14 februari 2017</h3>
+              <div class="person">
+                <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+                <p class="name">Jouk</p>
+              </div>
+              <div class="person">
+                <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+                <p class="name">Jouk</p>
+              </div>
+            </div>
+  {# {% endfor %}#}
+</div>
+
 {% endblock %}
