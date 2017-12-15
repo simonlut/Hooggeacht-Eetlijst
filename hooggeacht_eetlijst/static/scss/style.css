@@ -3,6 +3,11 @@
   width: 100%;
   position: fixed; }
 
+.cutlery {
+  position: absolute;
+  right: 0px;
+  width: 30px; }
+
 .content-days {
   margin: 60px; }
   @media (max-width: 600px) {
