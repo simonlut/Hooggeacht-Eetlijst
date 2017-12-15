@@ -3,6 +3,10 @@ $primary-color: #F95759;
 $navbar-height: 40px;
 $box-shadow: 0 7px 14px #ccc;
 
+$white: #fff;
+$purple: #6772e5;
+$light-purple: #7795f8;
+
 // Extra small devices (portrait phones, less than 576px)
 // @media (max-width: 575px) { ... }
 
@@ -19,14 +23,24 @@ body{
 // background-color: grey;
 }
 
+#canvas-basic{
+  height: 100%;
+  width: 100%;
+  position:fixed;
+}
+
 .content-days{
   margin: 60px;
+  @media (max-width: 600px){
+    margin:0;
+  }
+
   .slick-list{
     padding: 30px;
   }
   .day:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 9px 19px #ccc;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 17px #ccc;
 
   }
   .day{
@@ -35,29 +49,106 @@ body{
     border-radius: 3px;
     overflow: hidden;
     margin: 10px;
+    padding: 0 15px 0 15px;
+    background-color: #FFF;
 
     h1{
       padding: 10px 10px 0 10px;
       color: #000;
       display: flex;
       justify-content: center;
-      font-size: 2.5em;
+      font-size: 2em;
+      margin-bottom: 0;
     }
     h3{
       padding-left: 10px;
       padding-right: 10px;
-      font-size: 12pt;
+      font-size: 1em;
       display: flex;
       justify-content: center;
     }
 
+    .buttons{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .button {
+      margin: auto;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 12px;
+      box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+      background: $white;
+      color: $purple;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .025em;
+      transition: all .15s ease;
+      cursor: pointer;
+
+      &:hover {
+        color: $light-purple;
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+        text-decoration: none;
+      }
+
+      &--inverse {
+        @extend .button;
+        color: $white;
+        background: $purple;
+        text-decoration: none;
+
+        &:hover {
+          color: $white;
+          background-color: $light-purple;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .peoples{
+      margin-top: 10px;
+
+      .kok{
+        background-color: $light-purple;
+        border-radius: 4px;
+        box-shadow: 0 3px 8px #ccc;
+        color: $white;
+      }
+    }
+
+    .aanhang{
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+      .aan-icon{
+        width: 20px;
+      }
+
+      img{
+        float:left;
+      }
+      .name{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        font-size: 12px;
+      }
+    }
     .person{
       overflow: hidden;
       display: flex;
       align-items: center;
       .pers-icon{
         width: 50px;
-        padding: 10px 10px 10px 10px;
+        padding: 9px;
       }
 
       img{
