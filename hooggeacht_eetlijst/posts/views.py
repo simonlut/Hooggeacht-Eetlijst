@@ -26,6 +26,7 @@ class PostEaterCreateView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super(PostEaterCreateView, self).form_valid(form)
 
+
 class PostEaterDetailView( LoginRequiredMixin, DetailView):
     login_url = '/accounts/login/'
     redirect_field_name = 'posts/posteater_form.html'
@@ -50,3 +51,5 @@ class PostEaterListView( LoginRequiredMixin, ListView):
     redirect_field_name = 'posts/posteater_form.html'
 
     model = PostEater
+
+    

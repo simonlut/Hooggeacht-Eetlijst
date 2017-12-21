@@ -14,10 +14,90 @@
   <li>Voorkeur voor eten: {{ user.profile.food_preference }}</li>
 </ul>-->
 {# <canvas id="canvas-basic"></canvas> #}
-<div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+  <div class="today">
+
+
+    <div class="today-content">
+      <h2 class="today-title">Vandaag</h2>
+      <hr class="m-t">
+
+      <div class="today-eater-form">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="today-koken">
+              <a class="button button-cook" href="#">Koken</a>
+            </div>
+              <h2>Ik wil mee-eten</h2>
+              <p>Heel veel blaten over dingen jaa..g...</p>
+              <form method="POST">
+                  {% csrf_token %}
+                  {{ form }}
+                  <div class="today-koken">
+                  <input type="submit" class="btn button" value="Mee-eten">
+                </div>
+              </form>
+            </div>
+          <div class="col-lg-6 stats">
+            <p>Hier komen statistiekjes enzo</p>
+            <canvas id="myChart"</canvas>
+
+            </div>
+        </div>
+
+      </div>
+
+      <div class="today-people">
+        <div class="peoples">
+          <div class="peoples-2">
+          <h5>Vandaag</h5>
+          <hr class="m-t">
+          <div class="person kok">
+            <img class="rounded-circle pers-icon " src="{% static 'img/account_icon.png'%}"></img>
+            <p class="name">Jouk</p>
+          </div>
+          <div class="person">
+            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+            <p class="name">Sander</p>
+            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
+          </div>
+          <div class="person">
+            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+            <p class="name">Pieter</p>
+            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
+          </div>
+          <div class="person">
+            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+            <p class="name">Michiel</p>
+            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
+          </div>
+          <div class="person">
+            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+            <p class="name">Simon</p>
+            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
+          </div>
+          <div class="aanhang">
+            <img class="rounded-circle aan-icon" src="{% static 'img/account_icon.png'%}"></img>
+            <p class="name">Mick</p>
+            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
+          </div>
+          <div class="person">
+            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
+            <p class="name">Dave</p>
+            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <h2 class="today-title">Toekomst</h2>
     <div class="content-days">
+
     {# {% for post in posts  %}#}
     <div class="day">
+
       <h1>Monday</h1>
       <h3>14 februari 2017</h3>
       <div class="buttons">
@@ -270,8 +350,6 @@
         <p class="name">Jouk</p>
       </div>
     </div>
-  </div>
-
   </div>
 
 

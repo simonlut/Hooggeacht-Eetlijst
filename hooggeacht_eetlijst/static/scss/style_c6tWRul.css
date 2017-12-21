@@ -22,7 +22,7 @@ body {
   transition: all .15s ease;
   cursor: pointer; }
   .button:hover, .button--inverse:hover, .button-side--inverse:hover, .content-days .day .button--inverse:hover {
-    color: #ddd;
+    color: #8ab0e2;
     transform: translateY(-1px);
     box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
     text-decoration: none; }
@@ -32,7 +32,7 @@ body {
     text-decoration: none; }
     .button--inverse:hover {
       color: #fff;
-      background-color: #ddd;
+      background-color: #8ab0e2;
       text-decoration: none; }
 
 .navbar-nav {
@@ -74,30 +74,9 @@ a:hover {
   justify-content: center;
   align-items: center;
   z-index: 1; }
-  .today .today-koken {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%; }
-    .today .today-koken .button-cook {
-      background-color: #FFF !important;
-      color: #000 !important; }
-      .today .today-koken .button-cook:hover {
-        color: #ccc !important;
-        box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08) !important; }
-    .today .today-koken .button, .today .today-koken .button--inverse, .today .today-koken .button-side--inverse {
-      width: 100%;
-      text-align: center;
-      padding: 8px;
-      background-color: #0000FF;
-      font-size: 14px;
-      font-weight: 600;
-      color: #ccc; }
-      .today .today-koken .button:hover, .today .today-koken .button--inverse:hover, .today .today-koken .button-side--inverse:hover {
-        color: #fff;
-        box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08); }
   .today .today-eater-form {
     position: absolute;
+    display: inline-block;
     z-index: 100;
     padding-left: 40%;
     right: 0;
@@ -105,7 +84,7 @@ a:hover {
   .today .today-people {
     width: 40%;
     height: 95%;
-    background-color: #ddd;
+    background-color: #8ab0e2;
     position: absolute;
     display: flex;
     z-index: 1;
@@ -180,7 +159,7 @@ a:hover {
   transition: all .15s ease;
   cursor: pointer; }
   .button-side:hover {
-    color: #ddd;
+    color: #8ab0e2;
     transform: translateY(-1px);
     box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
     text-decoration: none; }
@@ -190,7 +169,7 @@ a:hover {
     text-decoration: none; }
     .button-side--inverse:hover {
       color: #fff;
-      background-color: #ddd;
+      background-color: #8ab0e2;
       text-decoration: none; }
 
 .fp-content .row {
@@ -290,7 +269,7 @@ a:hover {
       transition: all .15s ease;
       cursor: pointer; }
       .content-days .day .button:hover, .content-days .day .button-side--inverse:hover, .content-days .day .button--inverse:hover {
-        color: #ddd;
+        color: #8ab0e2;
         transform: translateY(-1px);
         box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
         text-decoration: none; }
@@ -300,12 +279,12 @@ a:hover {
         text-decoration: none; }
         .content-days .day .button--inverse:hover {
           color: #fff;
-          background-color: #ddd;
+          background-color: #8ab0e2;
           text-decoration: none; }
     .content-days .day .peoples {
       margin-top: 10px; }
       .content-days .day .peoples .kok {
-        background-color: #ddd;
+        background-color: #8ab0e2;
         border-radius: 4px;
         box-shadow: 0 3px 8px #ccc;
         color: #fff; }
