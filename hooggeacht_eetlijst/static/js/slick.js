@@ -4,14 +4,14 @@ $(document).ready(function(){
     infinite: false,
     arrows: true,
     speed: 300,
-    slidesToShow: 7,
-    slidesToScroll: 7,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     responsive: [
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 5,
-          slidesToScroll: 5,
+          slidesToShow: 4,
+          slidesToScroll: 4,
           infinite: false,
           arrows: true,
           dots: false

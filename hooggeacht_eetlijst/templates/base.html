@@ -27,7 +27,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-tranparent">
-      <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo_hooggeacht.png' %}" alt="" class="img-fluid"></a>
+      <a class="navbar-brand col-sm-3 col-md-2" href="{% url 'home' %}"><img src="{% static 'img/account_icon.png' %}" alt="" class="img-fluid rounded-circle aarbei"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,6 +35,7 @@
       <div class="collapse navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           {% if user.is_authenticated %}
+          <h2>HooggeAcht Eetlijst</h2>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts:attachment_create' %}">Aanhang</a>
           </li>
@@ -60,9 +61,46 @@
           {% endif %}
       </div>
     </nav>
+<div class="container-fluid fp-content">
+  <div class="row">
+    <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+      <div class="housetitle">
+        <h3>{{user.profile.housename|title}}</h3>
+        <!-- <h5>{{user.username|title}}</h5> -->
+      </div>
+      <hr class="m-t">
 
-    {% block content %}
-    {% endblock %}
+          <ul class="nav nav-pills flex-column">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:profile' %}">Account instellingen</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:attachment_list' %}">Aanhang beheren</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'accounts:login' %}">Inloggen <span class="sr-only">(current)</span></a>
+            </li>
+            {% endif %}
+          </ul>
+          <hr class="m-t">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item button-side">
+              <a class="nav-link" href="{% url 'home' %}">Eetlijst</a>
+            </li>
+            <li class="nav-item button-side">
+              <a class="nav-link" href="{% url 'accounts:profile' %}">Geschiedenis</a>
+            </li>
+          </ul>
+        </nav>
+        {% block content %}
+        {% endblock %}
+  </div>
+
+</div>
+
 
 
     <!-- Scripts -->
