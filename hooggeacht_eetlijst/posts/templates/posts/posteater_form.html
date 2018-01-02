@@ -1,8 +1,12 @@
-<div class="container form-container">
-  <h2>Ik wil mee-eten</h2>
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% load staticfiles %}
+
+{% block content %}
+
   <form method="POST">
       {% csrf_token %}
-      {{ form }}
-      <input type="submit" class="btn button" value="Voedsel">
+      {% bootstrap_form form %}
+      <input type="submit" class="btn button button-cook" value="Inschrijven">
   </form>
-</div>
+{% endblock %}

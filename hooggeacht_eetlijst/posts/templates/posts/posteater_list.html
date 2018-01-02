@@ -1,1 +1,17 @@
-sdfsdfsd
+{% load staticfiles %}
+<div class="peoples">
+  <div class="peoples-2">
+  <h5>Vandaag {% now "j F Y" %}</h5>
+  <hr class="m-t">
+  {% for posteater in posteater_list %}
+  <div class="person">
+    <img class="rounded-circle pers-icon " src="{% static 'img/account_icon.png'%}"></img>
+    <p class="name">{{ posteater.user|title }}</p>
+    <p class="aanhang_post">{{ posteater.extra_eaters }}</p>
+    <p class="aanhang_post">{{ posteater.submit_time }}</p>
+
+    <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
+  </div>
+  {% endfor %}
+  </div>
+</div>

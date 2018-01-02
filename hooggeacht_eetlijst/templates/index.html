@@ -29,17 +29,14 @@
             </div>
               <h2>Ik wil mee-eten</h2>
               <p>Heel veel blaten over dingen jaa..g...</p>
-              <form method="POST">
-                  {% csrf_token %}
-                  {{ form }}
-                  <div class="today-koken">
-                  <input type="submit" class="btn button" value="Mee-eten">
-                </div>
-              </form>
+              {# {% include "posts/posteater_form.html" %} #}
+              <div class="today-koken">
+                <a class="button button-cook" href="posts/inschrijven">Inschrijven</a>
+              </div>
             </div>
           <div class="col-lg-6 stats">
             <p>Hier komen statistiekjes enzo</p>
-            <canvas id="myChart"</canvas>
+            <canvas id="myChart" data="[2,30]"></canvas>
 
             </div>
         </div>
@@ -47,46 +44,7 @@
       </div>
 
       <div class="today-people">
-        <div class="peoples">
-          <div class="peoples-2">
-          <h5>Vandaag</h5>
-          <hr class="m-t">
-          <div class="person kok">
-            <img class="rounded-circle pers-icon " src="{% static 'img/account_icon.png'%}"></img>
-            <p class="name">Jouk</p>
-          </div>
-          <div class="person">
-            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-            <p class="name">Sander</p>
-            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-          </div>
-          <div class="person">
-            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-            <p class="name">Pieter</p>
-            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-          </div>
-          <div class="person">
-            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-            <p class="name">Michiel</p>
-            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-          </div>
-          <div class="person">
-            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-            <p class="name">Simon</p>
-            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-          </div>
-          <div class="aanhang">
-            <img class="rounded-circle aan-icon" src="{% static 'img/account_icon.png'%}"></img>
-            <p class="name">Mick</p>
-            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-          </div>
-          <div class="person">
-            <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-            <p class="name">Dave</p>
-            <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-          </div>
-          </div>
-        </div>
+        {% include "posts/posteater_list.html" %}
       </div>
     </div>
 

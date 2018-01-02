@@ -13,6 +13,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 
+from django.utils import timezone
+from datetime import date
+
+
+
+
 # Create your views here.
 class PostEaterCreateView(LoginRequiredMixin, CreateView):
     login_url = '/accounts/login/'
@@ -25,6 +31,11 @@ class PostEaterCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(PostEaterCreateView, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(PostEaterCreateView, self).get_context_data(**kwargs)
+        context['posteater_form'] = PostEater()
+        return context
 
 
 class PostEaterDetailView( LoginRequiredMixin, DetailView):
@@ -48,8 +59,9 @@ class PostEaterDeleteView(LoginRequiredMixin, DeleteView):
 
 class PostEaterListView( LoginRequiredMixin, ListView):
     login_url = '/accounts/login/'
-    redirect_field_name = 'posts/posteater_form.html'
+    redirect_field_name = 'posts/posteater_list.html'
 
     model = PostEater
 
-    
+    def get_queryset(self):
+        return PostEater.objects.filter(submit_time__date=date.today())
