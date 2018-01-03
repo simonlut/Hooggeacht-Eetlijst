@@ -17,8 +17,6 @@ from django.utils import timezone
 from datetime import date
 
 
-
-
 # Create your views here.
 class PostEaterCreateView(LoginRequiredMixin, CreateView):
     login_url = '/accounts/login/'
@@ -31,12 +29,6 @@ class PostEaterCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(PostEaterCreateView, self).form_valid(form)
-
-    def get_context_data(self, **kwargs):
-        context = super(PostEaterCreateView, self).get_context_data(**kwargs)
-        context['posteater_form'] = PostEater()
-        return context
-
 
 class PostEaterDetailView( LoginRequiredMixin, DetailView):
     login_url = '/accounts/login/'
@@ -57,11 +49,48 @@ class PostEaterDeleteView(LoginRequiredMixin, DeleteView):
     model = PostEater
     success_url = reverse_lazy('home')
 
-class PostEaterListView( LoginRequiredMixin, ListView):
+class PostEaterListView(LoginRequiredMixin, ListView):
     login_url = '/accounts/login/'
-    redirect_field_name = 'posts/posteater_list.html'
+    redirect_field_name = 'posts/posteater_form.html'
 
     model = PostEater
 
     def get_queryset(self):
         return PostEater.objects.filter(submit_time__date=date.today())
+
+class PostCookListView(LoginRequiredMixin, ListView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'posts/postcook_form.html'
+
+    model = PostCook
+
+class PostCookCreateView(LoginRequiredMixin, CreateView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'posts/postcook_form.html'
+
+    form_class = PostCookForm
+
+    model = PostCook
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(PostCookCreateView, self).form_valid(form)
+
+class PostCookDetailView( LoginRequiredMixin, DetailView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'posts/postcook_form.html'
+
+    model = PostCook
+
+
+class PostCookUpdateView(LoginRequiredMixin, UpdateView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'posts/postcook_form.html'
+
+    form_class = PostCookForm
+
+    model = PostCook
+
+class PostCookDeleteView(LoginRequiredMixin, DeleteView):
+    model = PostCook
+    success_url = reverse_lazy('home')

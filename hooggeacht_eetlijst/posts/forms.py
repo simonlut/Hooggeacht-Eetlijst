@@ -4,10 +4,11 @@ from django import forms
 
 class PostEaterForm(forms.ModelForm):
     class Meta:
-        fields = ('extra_eaters', 'extra_eater_veg', 'extra_eater_allergy')
+        fields = ('eat','extra_eaters','attachment_eater','extra_eater_veg', 'extra_eater_allergy')
         model = PostEater
+
 
 class PostCookForm(forms.ModelForm):
     class Meta:
-        fields = ('eat_time', 'extra_eaters', 'extra_eater_veg', 'extra_eater_allergy')
+        fields = ('extra_eaters', 'extra_eater_veg', 'extra_eater_allergy')
         model = PostCook

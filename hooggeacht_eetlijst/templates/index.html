@@ -25,26 +25,61 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="today-koken">
-              <a class="button button-cook" href="#">Koken</a>
+              <a class="button button-cook" href="{% url 'posts:postcook_create' %}">Koken</a>
             </div>
               <h2>Ik wil mee-eten</h2>
               <p>Heel veel blaten over dingen jaa..g...</p>
               {# {% include "posts/posteater_form.html" %} #}
               <div class="today-koken">
-                <a class="button button-cook" href="posts/inschrijven">Inschrijven</a>
+                <a class="button button-cook" href="{% url 'posts:posteater_create' %}">Inschrijven</a>
               </div>
             </div>
           <div class="col-lg-6 stats">
             <p>Hier komen statistiekjes enzo</p>
             <canvas id="myChart" data="[2,30]"></canvas>
+<script type="text/javascript">
+$(document).ready(function(){
+  var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ["Mee-eters", "Niet mee-eters"],
+        datasets: [{
+            data: [{{ posteater_list|length }}+{{ postcook_list|length }},10-{{ posteater_list|length }}-{{ postcook_list|length }}],
+            backgroundColor: [
+                'rgba(255, 99, 132,1)',
+                'rgba(54, 162, 235,1)',
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+      responsive:true,
+      legend:false,
+    }
+});
+});
 
+
+</script>
             </div>
         </div>
 
       </div>
 
       <div class="today-people">
+        <div class="peoples">
+          <div class="peoples-2">
+          <h5>Vandaag {% now "j F Y" %}</h5>
+          <hr class="m-t">
+        {% include "posts/postcook_list.html" %}
         {% include "posts/posteater_list.html" %}
+      </div>
+    </div>
       </div>
     </div>
 

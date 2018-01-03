@@ -211,13 +211,13 @@ a:hover {
 .sidebar {
   position: fixed;
   bottom: 0;
-  top: 81px;
+  top: 66px;
   padding: 0 1%;
   -moz-box-shadow: 1px 3px 5px #ccc;
   -webkit-box-shadow: 1px 3px 5px #ccc;
   box-shadow: 1px 3px 5px #ccc;
   background-color: #fff;
-  z-index: 3; }
+  z-index: 1; }
   .sidebar .housetitle {
     display: flex;
     justify-content: center; }
@@ -348,12 +348,12 @@ h1 {
 .navbar .navbar-brand {
   height: 100%; }
   .navbar .navbar-brand img {
-    height: 60px; }
+    height: 45px; }
 
 .navbar .navbar-collapse .dropdown-toggle {
   height: 100%; }
   .navbar .navbar-collapse .dropdown-toggle img {
-    height: 40px; }
+    height: 30px; }
 
 .row {
   padding: 20px; }

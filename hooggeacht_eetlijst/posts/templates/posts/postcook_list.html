@@ -1,0 +1,12 @@
+{% load staticfiles %}
+  {% for postcook in postcook_list %}
+  <div class="person kok">
+    <img class="rounded-circle pers-icon " src="{% static 'img/account_icon.png'%}"></img>
+    <p class="name">{{ postcook.user|title }}</p>
+    <p class="aanhang_post">{{ postcook.extra_eaters }}</p>
+    <p class="aanhang_post">{{ postcook.submit_time|date:'H:i'  }}</p>
+
+    <img class="cutlery" src="http://www.pngmart.com/files/4/Cooking-PNG-Clipart.png"></img>
+
+  </div>
+  {% endfor %}
