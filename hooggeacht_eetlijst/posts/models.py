@@ -22,7 +22,13 @@ class PostEater(models.Model):
     extra_eaters = models.PositiveSmallIntegerField(default=0,blank=True)
     extra_eater_veg = models.PositiveSmallIntegerField(default=0,blank=True) #Number slider
     extra_eater_allergy = models.CharField(default=0,max_length=124, blank=True)
-    submit_time = models.DateTimeField(auto_now_add=True)
+    submit_time = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+            ''' On save, update timestamps '''
+            if not self.id:
+                self.submit_time = timezone.now()
+            return super(PostEater, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("posts:posteater_detail",kwargs={'pk':self.pk})
@@ -30,20 +36,20 @@ class PostEater(models.Model):
     def __str__(self):
         return self.user.username
 
-    def clean(self):
-        # Don't allow draft entries to have a pub_date.
-        if self.extra_eaters < self.extra_eater_veg:
-            raise ValidationError(_('He man, leer is rekenen, hoe kun je nou meer extra veggies hebben dan het totaal aantal extra mensen.'))
-
-    def validate_unique(self, exclude=None):
-        qs = PostEater.objects.filter(submit_time__date=date.today())
-        # if f.exists():
-        #     raise ValidationError(_('WEJOW BITCHES'))
-        if qs.exists():
-            raise ValidationError(_('Je hebt je al ingeschreven voor vandaag.'))
-        s = PostCook.objects.filter(submit_time__date=date.today())
-        if s.exists():
-            s.delete()
+    # def clean(self):
+    #     # Don't allow draft entries to have a pub_date.
+    #     if self.extra_eaters < self.extra_eater_veg:
+    #         raise ValidationError(_('He man, leer is rekenen, hoe kun je nou meer extra veggies hebben dan het totaal aantal extra mensen.'))
+    #
+    # def validate_unique(self, exclude=None):
+    #     qs = PostEater.objects.filter(submit_time__date=date.today())
+    #     # if f.exists():
+    #     #     raise ValidationError(_('WEJOW BITCHES'))
+    #     if qs.exists():
+    #         raise ValidationError(_('Je hebt je al ingeschreven voor vandaag.'))
+    #     s = PostCook.objects.filter(submit_time__date=date.today())
+    #     if s.exists():
+    #         s.delete()
 
 class PostCook(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -66,10 +72,10 @@ class PostCook(models.Model):
     def __str__(self):
         return self.user.username
 
-    def validate_unique(self, exclude=None):
-        qs = PostCook.objects.filter(submit_time__date=date.today())
-        if qs.exists():
-            raise ValidationError('Je staat al op koken.')
-        s = PostEater.objects.filter(submit_time__date=date.today())
-        if s.exists():
-                s.delete()
+    # def validate_unique(self, exclude=None):
+    #     qs = PostCook.objects.filter(submit_time__date=date.today())
+    #     if qs.exists():
+    #         raise ValidationError('Je staat al op koken.')
+    #     s = PostEater.objects.filter(submit_time__date=date.today())
+    #     if s.exists():
+    #             s.delete()

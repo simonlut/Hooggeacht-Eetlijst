@@ -27,6 +27,11 @@ body{
 background-color: $light-grey;
 }
 
+#bp {
+  width: 100%;
+  height: 400px;
+}
+
 // buttons
 .buttons{
   display: flex;
@@ -167,6 +172,13 @@ a:hover{
     right: 0;
     left:0;
   }
+
+  #bm {
+    width: 100%;
+    height: 100%;
+  }
+
+
 
   .today-people{
     width:40%;

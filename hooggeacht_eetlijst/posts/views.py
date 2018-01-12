@@ -17,6 +17,7 @@ from django.utils import timezone
 from datetime import date
 
 
+
 # Create your views here.
 class PostEaterCreateView(LoginRequiredMixin, CreateView):
     login_url = '/accounts/login/'
@@ -29,6 +30,11 @@ class PostEaterCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(PostEaterCreateView, self).form_valid(form)
+
+    def get_form_kwargs(self):
+        kwargs = super(PostEaterCreateView, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
 
 class PostEaterDetailView( LoginRequiredMixin, DetailView):
     login_url = '/accounts/login/'
@@ -64,6 +70,8 @@ class PostCookListView(LoginRequiredMixin, ListView):
 
     model = PostCook
 
+
+
 class PostCookCreateView(LoginRequiredMixin, CreateView):
     login_url = '/accounts/login/'
     redirect_field_name = 'posts/postcook_form.html'
@@ -75,6 +83,11 @@ class PostCookCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(PostCookCreateView, self).form_valid(form)
+
+    def get_form_kwargs(self):
+        kwargs = super(PostCookCreateView, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
 
 class PostCookDetailView( LoginRequiredMixin, DetailView):
     login_url = '/accounts/login/'
