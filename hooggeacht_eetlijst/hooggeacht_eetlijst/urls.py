@@ -29,6 +29,8 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^posts/', include('posts.urls', namespace='posts')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^calendar/', include('calendarium.urls')),
+
 ]
 
 if settings.DEBUG:

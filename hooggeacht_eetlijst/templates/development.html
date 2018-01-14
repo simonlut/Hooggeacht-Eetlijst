@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
+{% load calendarium_tags %}
 {% block content %}
 <h1>Nog in ontwikkeling.</h1>
 <div id="bp"></div>
+{% url "calendar_current_month" %}
+{% render_upcoming_events %}
+<link rel="stylesheet" href="{% static "calendarium/css/calendar.css" %}">
+
 {% endblock %}

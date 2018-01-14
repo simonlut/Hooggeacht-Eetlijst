@@ -50,6 +50,10 @@ INSTALLED_APPS = [
     'bootstrap4',
     'accounts',
     'posts',
+    'filer',
+    'mptt',
+    'easy_thumbnails',
+    'calendarium',
 ]
 
 MIDDLEWARE = [

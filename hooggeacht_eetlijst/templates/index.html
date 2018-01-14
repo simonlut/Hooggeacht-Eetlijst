@@ -92,9 +92,7 @@ var myChart = new Chart(ctx, {
     <div class="content-days">
 
     {# {% for post in posts  %}#}
-    <div class="day">
-
-      <h1>Monday</h1>
+      <!--<h1>Monday</h1>
       <h3>14 februari 2017</h3>
       <div class="buttons">
         <a class='button--inverse'>Eten</a>
@@ -138,9 +136,8 @@ var myChart = new Chart(ctx, {
           <p class="name">Dave</p>
           <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
         </div>
-      </div>
-    </div>
-
+      </div> -->
+      {% include "posts/posteater_template.html" %}
     {# {% endfor %}#}
     <div class="day">
       <h1>Monday</h1>

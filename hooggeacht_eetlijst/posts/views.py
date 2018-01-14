@@ -64,6 +64,13 @@ class PostEaterListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return PostEater.objects.filter(submit_time__date=date.today())
 
+class PostEaterTemplateView(LoginRequiredMixin, TemplateView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'posts/posteater_form.html'
+
+    model = PostEater
+
+
 class PostCookListView(LoginRequiredMixin, ListView):
     login_url = '/accounts/login/'
     redirect_field_name = 'posts/postcook_form.html'

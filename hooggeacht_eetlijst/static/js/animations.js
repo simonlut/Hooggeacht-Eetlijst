@@ -16,7 +16,4 @@ var animation2 = bodymovin.loadAnimation({
   path: 'static/json/construction_site.json'
 })
 
-
-
-
 })
