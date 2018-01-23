@@ -50,10 +50,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'accounts',
     'posts',
-    'filer',
-    'mptt',
-    'easy_thumbnails',
-    'calendarium',
+    'schedule',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +63,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-
 ]
 
 ROOT_URLCONF = 'hooggeacht_eetlijst.urls'

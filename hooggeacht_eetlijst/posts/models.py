@@ -34,7 +34,7 @@ class PostEater(models.Model):
         return reverse("posts:posteater_detail",kwargs={'pk':self.pk})
 
     def __str__(self):
-        return self.user.username
+        return self.user.username + str(self.submit_time)
 
     # def clean(self):
     #     # Don't allow draft entries to have a pub_date.
@@ -70,7 +70,7 @@ class PostCook(models.Model):
         return reverse("posts:postcook_detail",kwargs={'pk':self.pk})
 
     def __str__(self):
-        return self.user.username
+        return self.user.username + str(self.submit_time)
 
 
     def save(self, *args, **kwargs):

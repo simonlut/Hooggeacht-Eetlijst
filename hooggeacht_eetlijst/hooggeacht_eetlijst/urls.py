@@ -1,5 +1,4 @@
 """hooggeacht_eetlijst URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
 Examples:
@@ -29,7 +28,7 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^posts/', include('posts.urls', namespace='posts')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^calendar/', include('calendarium.urls')),
+    url(r'^schedule/', include('schedule.urls')),
 
 ]
 

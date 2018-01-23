@@ -13,7 +13,7 @@ class HomePage(TemplateView):
         context = super(HomePage, self).get_context_data(**kwargs)
         context['postcook_list'] = PostCook.objects.filter(submit_time__date=date.today()).order_by('-submit_time')
         context['posteater_list'] = PostEater.objects.filter(submit_time__date=date.today()).order_by('-submit_time')
-        context['posteater_template'] = PostEater.objects.order_by('-submit_time')
+        # context['posteater_template'] = PostEater.objects.order_by('submit_time')
         return context
 
 class ThanksPage(TemplateView):

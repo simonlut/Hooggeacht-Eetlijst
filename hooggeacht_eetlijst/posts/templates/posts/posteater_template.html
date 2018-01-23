@@ -1,15 +1,18 @@
 {% load staticfiles %}
 {% load tags_post %}
+{% load multifor %}
 
 {% future_days as days_list %}
 {% future_weekdays as weekdays_list %}
 {% future_persons as persons_list %}
 
-{% for day in days_list %}
-{% for weekday in weekdays_list %}
+{% for day in days_list; weekday in weekdays_list; persons in persons_list  %}
+
 <div class="day">
-    <h1>{{ weekday }}</h1>
+  <h1>{{ weekday }}</h1>
   <h3>{{ day }}</h3>
+  <h3>{{ key }}</h3>
+
   <div class="buttons">
     <a class='button--inverse'>Eten</a>
     <a class='button'>Koken</a>
@@ -17,16 +20,28 @@
   </div>
   <p>7 vlees</p>
   <p>2 veggie</p>
-  {% for person in persons_list %}
   <div class="peoples">
-    <div class="person">
-      <img class="rounded-circle pers-icon " src="{% static 'img/account_icon.png'%}"></img>
-      <p class="name">{{ person.user|title }}</p>
-      <p class="aanhang_post">{{ person.extra_eaters }}</p>
-      <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
+<div class="person">
+  <img class="rounded-circle pers-icon " src="{% static 'img/account_icon.png'%}"></img>
+  <p class="name">{{ persons }}</p>
+  <p class="aanhang_post">{{ persons.extra_eaters }}</p>
+  <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
+</div>
+  </div>
+
+  </div>
+  {% empty %}
+  <div class="day">
+    <h1>{{ weekday }}</h1>
+    <h3>{{ day }}</h3>
+    <h3>{{ key }}</h3>
+
+    <div class="buttons">
+      <a class='button--inverse'>Eten</a>
+      <a class='button'>Koken</a>
+      <a class='button'>Niet</a>
     </div>
-  </div>
-    {% endfor %}
-  </div>
+    <p>7 vlees</p>
+    <p>2 veggie</p>
+    </div>
   {% endfor %}
-{% endfor %}

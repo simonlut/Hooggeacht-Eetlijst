@@ -14,11 +14,12 @@
   <li>Voorkeur voor eten: {{ user.profile.food_preference }}</li>
 </ul>-->
 {# <canvas id="canvas-basic"></canvas> #}
+<h2 class="today-title">Vandaag</h2>
   <div class="today">
 
 
     <div class="today-content">
-      <h2 class="today-title">Vandaag</h2>
+      <h2>{% now "j F Y" %}</h2>
       <hr class="m-t">
 
       <div class="today-eater-form">
@@ -27,9 +28,8 @@
             <div class="today-koken">
               <a class="button button-cook" href="{% url 'posts:postcook_create' %}">Koken</a>
             </div>
-              <h2>Ik wil mee-eten</h2>
-              <p>Heel veel blaten over dingen jaa..g...</p>
-              <div id="bm">
+
+              <div id="bm" class="img-responsive">
 
               </div>
               {# {% include "posts/posteater_form.html" %} #}
@@ -77,8 +77,6 @@ var myChart = new Chart(ctx, {
       <div class="today-people">
         <div class="peoples">
           <div class="peoples-2">
-          <h5>Vandaag {% now "j F Y" %}</h5>
-          <hr class="m-t">
         {% include "posts/postcook_list.html" %}
         {% include "posts/posteater_list.html" %}
       </div>

@@ -71,6 +71,7 @@ class PostEaterTemplateView(LoginRequiredMixin, TemplateView):
     model = PostEater
 
 
+
 class PostCookListView(LoginRequiredMixin, ListView):
     login_url = '/accounts/login/'
     redirect_field_name = 'posts/postcook_form.html'

@@ -1,6 +1,6 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #000;
-$navbar-height: 30px;
+$navbar-height: 40px;
 $box-shadow: 0 5px 15px rgba(0,0,0,.07);
 // $link:
 
@@ -9,6 +9,9 @@ $purple: #868e96;
 $light-purple: #ddd;
 $light-grey:#f8f9fa;
 $link:#000000;
+$webflow-box-shadow:0 5px 15px -2px rgba(10, 16, 34, .4);
+$webflow-box-shadow-hover:0 5px 40px -2px rgba(10, 16, 34, .4);
+$red-pink:#FF8F96;
 
 
 // Extra small devices (portrait phones, less than 576px)
@@ -25,6 +28,7 @@ $link:#000000;
 
 body{
 background-color: $light-grey;
+font-family: sans-serif;
 }
 
 #bp {
@@ -85,9 +89,6 @@ background-color: $light-grey;
 }
 
 .navbar{
-  -moz-box-shadow:  0 0 5px #ccc;
-  -webkit-box-shadow:  0 0 5px #ccc;
-  box-shadow: 0 0 5px #ccc;
   position: fixed;
   left: 0;
   right: 0;
@@ -117,10 +118,9 @@ a:hover{
 .today{
   margin-left: -15px;
   margin-top: -15px;
-  padding: 3% 8% 3% 8%;
+  padding: 3% 5% 3% 8%;
   width: 100%;
-  height: 100%;
-  background-color: blue;
+  background-color: $light-grey;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,8 +133,9 @@ a:hover{
     width: 100%;
 
     .button-cook{
-      background-color: #FFF!important;
+      background-color: #effcff!important;
       color: #000!important;
+      margin-top: 10px;
 
       &:hover{
         color:#ccc!important;
@@ -173,37 +174,37 @@ a:hover{
     left:0;
   }
 
-  #bm {
-    width: 100%;
-    height: 100%;
-  }
-
-
 
   .today-people{
     width:40%;
+    max-width: 400px;
+    min-width: 300px;
     height:95%;
-    background-color: $light-purple;
+    color:#ffffff;
+    background-color: $red-pink;
     position: absolute;
     display: flex;
-    z-index: 1;
+    z-index: 200;
     margin-left: -30px;
-    box-shadow:$box-shadow;
+    box-shadow:$webflow-box-shadow;
+    border-radius:5px;
+    background: url("https://daks2k3a4ib2z.cloudfront.net/583347ca8f6c7ee058111b55/592e3752cc070d2bf06d91f7_how-not-to.jpg");
+    background-size: cover;
 
 
     .peoples{
       margin: 0.5%;
       padding: 4px;
-      border: solid $white 2px;
+      border: none;
       width: 100%;
-      border-radius: 2px;
+      border-radius: 4px;
     }
 
     .peoples-2{
       margin: 0.1%;
       padding: 20px;
-      border: solid $white 1px;
       width: 100%;
+      max-width: 100%;
       height: 100%;
       border-radius: 2px;
     }
@@ -258,6 +259,7 @@ a:hover{
     box-shadow: $box-shadow;
     width: 100%;
     height: 90%;
+    min-height: 500px;
     position: relative;
     border-radius: 3px;
     z-index:1;
@@ -317,6 +319,8 @@ a:hover{
       h2{
         display: flex;
         justify-content: center;
+        margin-top: 16px;
+        margin-bottom: 0px;
       }
       .today-title{
         font-family: 'Faster One', cursive;
@@ -340,11 +344,8 @@ a:hover{
   position: fixed;
   bottom:0;
   top:66px;
-  padding: 0 1%;
-  -moz-box-shadow: 1px 3px 5px #ccc;
-  -webkit-box-shadow: 1px 3px 5px #ccc;
-  box-shadow: 1px 3px 5px #ccc;
-  background-color: $white;
+  padding: 70px 1%;
+  background-color: $light-grey;
   z-index: 1;
 }
 
@@ -374,7 +375,7 @@ a:hover{
 }
 
   .slick-list{
-    padding: 30px;
+    padding: 0 30px 0 30px;
   }
   .day:hover {
     transform: translateY(-2px);
