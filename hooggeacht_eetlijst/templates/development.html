@@ -8,9 +8,6 @@
 <link rel='stylesheet' type='text/css' href="{% static 'css/fullcalendar.css' %}" />
 <script type='text/javascript' src="{% static 'js/moment.js' %}"></script>
 <script type='text/javascript' src="{% static 'js/fullcalendar.js' %}"></script>
-<ul>
-        <li><a href="">{% trans "Create a Calendar" %}</a></li>
-        <li><a href="">{% trans "Your Calendars" %}</a></li>
 
 <div id="calendar"></div>
 <script type='text/javascript'>
@@ -18,7 +15,7 @@ $(document).ready(function() {
     // page is now ready, initialize the calendar...
     $('#calendar').fullCalendar({
         // put your options and callbacks here
-      events: '/schedule/api/occurrences?calendar_slug=bio'
+      events: '/schedule/api/occurrences?calendar_slug=hooggeacht'
     })
 });
 </script>

@@ -23,6 +23,8 @@ SASS_PROCESSOR_INCLUDE_DIRS = [
 ]
 
 
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -132,11 +134,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+# Custom models added to scheduler
+SCHEDULER_BASE_CLASSES = ['posts.models.PostEater','posts.models.PostCook']
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'thanks'
+
 
 INTERNAL_IPS = ['127.0.0.1']

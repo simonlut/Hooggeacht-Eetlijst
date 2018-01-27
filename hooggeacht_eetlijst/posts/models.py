@@ -1,7 +1,7 @@
 from django.contrib import auth
 from django.db import models
 from django.utils import timezone
-from datetime import date
+from datetime import date, timedelta
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
@@ -10,6 +10,8 @@ from django.shortcuts import reverse
 from accounts.models import Attachment
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
+from schedule.models import Event, EventRelation, Calendar
+
 # from posts.models import PostCook
 
 
@@ -22,16 +24,38 @@ class PostEater(models.Model):
     extra_eaters = models.PositiveSmallIntegerField(default=0,blank=True)
     extra_eater_veg = models.PositiveSmallIntegerField(default=0,blank=True) #Number slider
     extra_eater_allergy = models.CharField(default=0,max_length=124, blank=True)
-    submit_time = models.DateTimeField()
+    submit_time = models.DateTimeField(auto_now_add=True)
+    description = models.CharField(max_length=30)
+    startDateTime = models.DateTimeField(auto_now_add=True)
 
-    def save(self, *args, **kwargs):
-            ''' On save, update timestamps '''
-            if not self.id:
-                self.submit_time = timezone.now()
-            return super(PostEater, self).save(*args, **kwargs)
+    def save(self, force_insert=False, force_update=False):
+        new_task = False
+        if not self.id:
+            new_task = True
+        super(PostEater, self).save(force_insert, force_update)
+        end = self.startDateTime + timedelta(minutes=24*60)
+        if new_task:
+            event = Event(start=self.startDateTime, end=end, title=self.user,
+                      description=self.description, calendar_id=1)
+            event.save()
+            rel = EventRelation.objects.create_relation(event, self)
+            rel.save()
+            try:
+                cal = Calendar.objects.get(name="hooggeacht")
+            except Calendar.DoesNotExist:
+                cal = Calendar(name="bla")
+                cal.save()
+            cal.events.add(event)
+        else:
+            event = Event.objects.get_for_object(self)[0]
+            event.start = self.startDateTime
+            event.end = end
+            event.title = title
+            event.description = self.description
+            event.save()
 
     def get_absolute_url(self):
-        return reverse("posts:posteater_detail",kwargs={'pk':self.pk})
+        return reverse("home")
 
     def __str__(self):
         return self.user.username + str(self.submit_time)
@@ -67,7 +91,7 @@ class PostCook(models.Model):
         )
 
     def get_absolute_url(self):
-        return reverse("posts:postcook_detail",kwargs={'pk':self.pk})
+        return reverse("home")
 
     def __str__(self):
         return self.user.username + str(self.submit_time)
