@@ -25,7 +25,7 @@ class PostEater(models.Model):
     extra_eater_veg = models.PositiveSmallIntegerField(default=0,blank=True) #Number slider
     extra_eater_allergy = models.CharField(default=0,max_length=124, blank=True)
     submit_time = models.DateTimeField(auto_now_add=True)
-    description = models.CharField(max_length=30)
+    description = models.CharField(max_length=30 , blank=True)
     startDateTime = models.DateTimeField(auto_now_add=True)
 
     def save(self, force_insert=False, force_update=False):
@@ -34,9 +34,10 @@ class PostEater(models.Model):
             new_task = True
         super(PostEater, self).save(force_insert, force_update)
         end = self.startDateTime + timedelta(minutes=24*60)
+        description = "{% url 'posts:archive_day' {'year=2018'} {'month':feb} {'day':28} %}"
         if new_task:
             event = Event(start=self.startDateTime, end=end, title=self.user,
-                      description=self.description, calendar_id=1)
+                      description=description, calendar_id=1)
             event.save()
             rel = EventRelation.objects.create_relation(event, self)
             rel.save()
@@ -96,7 +97,7 @@ class PostCook(models.Model):
     def __str__(self):
         return self.user.username + str(self.submit_time)
 
-
+    #
     def save(self, *args, **kwargs):
             ''' On save, update timestamps '''
             self.submit_time = timezone.now()

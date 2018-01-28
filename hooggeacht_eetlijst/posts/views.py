@@ -1,5 +1,5 @@
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import CreateView, TemplateView, DeleteView, UpdateView, DetailView, ListView
+from django.views.generic import CreateView, TemplateView, DeleteView, UpdateView, DetailView, ListView, DayArchiveView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.views import OwnObjectsMixin
 
@@ -115,3 +115,8 @@ class PostCookUpdateView(LoginRequiredMixin, UpdateView):
 class PostCookDeleteView(LoginRequiredMixin, DeleteView):
     model = PostCook
     success_url = reverse_lazy('home')
+
+class PostDayArchiveView(LoginRequiredMixin, DayArchiveView):
+    queryset = PostEater.objects.all()
+    date_field = "submit_time"
+    allow_future = True

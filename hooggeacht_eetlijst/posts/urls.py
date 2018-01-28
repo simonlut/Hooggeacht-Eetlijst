@@ -18,4 +18,5 @@ urlpatterns = [
     url(r'^koken/(?P<pk>\d+)$', views.PostCookDetailView.as_view(), name="postcook_detail"),
     url(r'^koken/(?P<pk>\d+)/aanpassen/$', views.PostCookUpdateView.as_view(), name="postcook_update"),
     url(r'^koken/(?P<pk>\d+)/verwijder/$', views.PostCookDeleteView.as_view(), name="postcook_delete"),
+    url(r'^(?P<year>\d+)/(?P<month>\d+)/(?P<day>\d+)/$', views.PostDayArchiveView.as_view(), name="archive_day")
 ]
