@@ -2,14 +2,13 @@
 {% load staticfiles %}
 {% block content %}
 {% for posteater in posteater_list %}
+{{day}}
 <div class="person">
   <img class="rounded-circle pers-icon " src="{% static 'img/account_icon.png'%}"></img>
   <p class="name">{{ posteater.user|title }}</p>
   <p class="aanhang_post">{{ posteater.extra_eaters }}</p>
   <p class="aanhang_post">{{ posteater.submit_time|date:'H:i' }}</p>
-  {% if attachment_eater %}
-  {# <p>{{ posteater.attachment_eater. }}</p> #}
-  {% endif %}
+
   <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
 </div>
 {% endfor %}

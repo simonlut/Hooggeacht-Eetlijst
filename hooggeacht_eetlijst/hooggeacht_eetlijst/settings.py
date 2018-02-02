@@ -136,6 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 # Custom models added to scheduler
 SCHEDULER_BASE_CLASSES = ['posts.models.PostEater','posts.models.PostCook']
+FIRST_DAY_OF_WEEK = 'Monday'
+
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 

@@ -10,6 +10,9 @@
 <script type='text/javascript' src="{% static 'js/fullcalendar.js' %}"></script>
 
 <div id="calendar"></div>
+<div id="loading">
+
+</div>
 <script type='text/javascript'>
 $(document).ready(function() {
     // page is now ready, initialize the calendar...
@@ -20,6 +23,4 @@ $(document).ready(function() {
 });
 </script>
 {% endif %}
-
-
 {% endblock %}

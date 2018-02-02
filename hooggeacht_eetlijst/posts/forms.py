@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from posts.models import PostEater, PostCook
+from schedule.models.events import Event
 from django import forms
 from datetime import date
 from django.core.exceptions import ValidationError

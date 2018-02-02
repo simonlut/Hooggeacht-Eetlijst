@@ -19,7 +19,7 @@ var defaults = {
 
 	// display
 	defaultView: 'month',
-	aspectRatio: 1.7,
+	aspectRatio: 1.5,
 	header: {
 		left: 'title',
 		center: '',
@@ -60,7 +60,7 @@ var defaults = {
 
 	// locale
 	isRTL: false,
-	firstDay: 0,
+	firstDay: 1,
 	monthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
 	monthNamesShort: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
 	dayNames: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
