@@ -30,11 +30,9 @@ var defaults = {
 	weekNumberCalculation: 'iso',
 	weekNumberTitle: 'W',
 
-	// editing
-	//editable: false,
-	//disableDragging: false,
-	//disableResizing: false,
-
+	// editable: false,
+	// disableDragging: false,
+	// disableResizing: false,
 	allDayDefault: true,
 	ignoreTimezone: true,
 
@@ -183,6 +181,7 @@ function setDefaults(d) {
 
 
 ;;
+
 
 
 function Calendar(element, options, eventSources) {
