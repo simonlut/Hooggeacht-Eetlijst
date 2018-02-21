@@ -8,6 +8,10 @@
 <link rel='stylesheet' type='text/css' href="{% static 'css/fullcalendar.css' %}" />
 <script type='text/javascript' src="{% static 'js/moment.js' %}"></script>
 <script type='text/javascript' src="{% static 'js/fullcalendar.js' %}"></script>
+<script src="{% static 'js/jquery-ui-datepicker.js' %}"></script>
+
+
+
 
 <div id="calendar"></div>
 <div id="loading">
@@ -26,7 +30,13 @@ $(document).ready(function() {
                   window.open(event.description);
                   return false;
               }
-          }
+          },
+
+          header: {
+    left: 'prev,next,today',
+    center: 'title',
+    right: 'month,basicWeek,listDay'
+}
     });
 });
 </script>

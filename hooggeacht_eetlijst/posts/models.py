@@ -34,7 +34,7 @@ class PostEater(models.Model):
             new_task = True
         super(PostEater, self).save(force_insert, force_update)
         end = self.startDateTime + timedelta(minutes=24*60)
-        description = "http://127.0.0.1:8000/posts/2018/jan/29/"
+        description = "http://127.0.0.1:8000/posts/"+str(self.submit_time.strftime("%Y/%b/%d"))
         if new_task:
             event = Event(start=self.startDateTime, end=end, title=self.user,
                       description=description, calendar_id=1)
