@@ -3,14 +3,20 @@
 {% load staticfiles %}
 
 {% block content %}
+{% bootstrap_messages %}
+
+<div class="card cook-form">
 
 <div class="container form-container">
   <h2>Aanhang toevoegen</h2>
   <form method="POST">
       {% csrf_token %}
       {% bootstrap_form form %}
-      <input type="submit" class="btn btn-primary" value="Toevoegen">
+
+      <input type="submit" class="btn button button-cook form-button" value="Toevoegen">
   </form>
 </div>
+</div>
+
 
 {% endblock %}

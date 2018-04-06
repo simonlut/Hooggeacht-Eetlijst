@@ -16,33 +16,105 @@ $red-pink:#FF8F96;
 
 // Extra small devices (portrait phones, less than 576px)
 // @media (max-width: 575px) { ... }
+$break-xs: 575px;
 
 // Small devices (landscape phones, less than 768px)
 // @media (max-width: 767px) { ... }
+$break-s: 575px;
+
 
 // Medium devices (tablets, less than 992px)
 // @media (max-width: 991px) { ... }
+$break-m: 991px;
 
 // Large devices (desktops, less than 1200px)
 // @media (max-width: 1199px) { ... }
+$break-l: 1199px;
+
 
 body{
 background-color: $light-grey;
 font-family: sans-serif;
 }
 
+.navbar-brand{
+  h2{
+    font-weight: bolder;
+    font-family: sans-serif;
+  }
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ----------------------------------------------------------INTRO---------------------------------------------------------
+.intro-header{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);}
+
+.intro.header-text{
+  font-family: 'Roboto', sans-serif;
+  @media screen and (max-width: $break-xs) {
+  width: 100%;
+  margin-right: 0;
+}
+}
+
+
+
+.bob{
+  width:33.333%!important;
+}
+
+#ice{
+}
+
+#ice svg{
+  width:300%;
+}
+
+.intro.header-text h1{
+  font-size: 6em;
+  font-weight: 900;
+  margin:0;
+  margin-left: -5px;
+  }
+
+.intro.header-text p{
+  font-size: 1.1em;
+  font-weight: 100;
+  margin:0;
+  margin-bottom:20px;
+}
+
+.button.intro{
+  padding: 10px 55px 10px 55px;
+  font-size: 0.8em;
+}
+
+
+// ---------------------------------------------------------------------------------------------
 #bp {
   width: 100%;
   height: 400px;
 }
 
+// ---------------------------------------------------------------------------------------------
 // buttons
+// ---------------------------------------------------------------------------------------------
+
 .buttons{
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-
 }
 
 .button {
@@ -59,6 +131,7 @@ font-family: sans-serif;
   text-transform: uppercase;
   letter-spacing: .025em;
   transition: all .15s ease;
+  text-decoration: none;
   cursor: pointer;
 
   &:hover {
@@ -81,7 +154,65 @@ font-family: sans-serif;
     }
   }
 }
-//
+
+// ---------------------------------------------------------------------------------------------
+// cards
+// ---------------------------------------------------------------------------------------------
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 40, 100, 0.12);
+  border-radius: 3px;
+}
+
+// -------------------------------------------------------------
+// forms
+//  -------------------------------------------------------------
+
+.cook-form{
+  padding: 18px 30px 30px 30px;
+  margin: 30px 0 30px 0;
+  max-width: 500px;
+  min-width: 300px;
+  margin-left:30px;
+}
+
+// custom-checkbox
+.form-button{
+  width:100%;
+  height: 40px;
+  background-color:blue;
+}
+// -------------------------------------------------------------
+// front page
+// -------------------------------------------------------------
+.time{
+  padding: 18px 30px 30px 30px;
+  margin-top: 10px;
+  h3{
+    font-weight: bolder;
+  }
+  .button{
+    padding:10px 10% 10px 10%;
+  }
+}
+
+.vandaag-info{
+  padding: 18px 30px 30px 30px;
+}
+
+.image-front{
+  padding: 20px 30px 30px 30%;
+
+}
 
 .navbar-nav{
     display: flex;
@@ -115,144 +246,155 @@ a:hover{
   color: #000000;
 }
 
+// .today{
+//   margin-left: -15px;
+//   margin-top: -15px;
+//   padding: 3% 5% 3% 8%;
+//   width: 100%;
+//   background-color: $light-grey;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   z-index: 1;
+//
+//   .today-koken{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+//
+//     .button-cook{
+//       background-color: #effcff!important;
+//       color: #000!important;
+//       margin-top: 10px;
+//
+//       &:hover{
+//         color:#ccc!important;
+//         box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08)!important;
+//
+//       }
+//     }
+//
+//
+//     .button{
+//       width: 100%;
+//       text-align: center;
+//       padding: 8px;
+//       background-color: #0000FF;
+//       font-size: 14px;
+//       font-weight: 600;
+//       color: #ccc;
+//
+//
+//       &:hover{
+//         color:#fff;
+//         box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+//
+//       }
+//     }
+//   }
+//
+//
+//   .today-eater-form{
+//     position: absolute;
+//     // margin-left: 20px;
+//     // width: 33.3%;
+//     z-index: 100;
+//     padding-left: 40%;
+//     right: 0;
+//     left:0;
+//   }
+//
+//
+//   .today-people{
+//     width:40%;
+//     max-width: 400px;
+//     min-width: 300px;
+//     height:95%;
+//     color:#ffffff;
+//     background-color: $red-pink;
+//     position: absolute;
+//     display: flex;
+//     z-index: 200;
+//     margin-left: -30px;
+//     box-shadow:$webflow-box-shadow;
+//     border-radius:5px;
+//     background: url("/static/img/vandaag_bg.jpg");
+//     background-size: cover;
+//
+//
+//     .peoples{
+//       margin: 0.5%;
+//       padding: 4px;
+//       border: none;
+//       width: 100%;
+//       border-radius: 4px;
+//     }
+//
+//     .peoples-2{
+//       margin: 0.1%;
+//       padding: 20px;
+//       width: 100%;
+//       max-width: 100%;
+//       height: 100%;
+//       border-radius: 2px;
+//     }
+//
+//     .person{
+//       overflow: hidden;
+//       display: flex;
+//       align-items: center;
+//       .pers-icon{
+//         width: 50px;
+//         padding: 9px;
+//       }
+//
+//       img{
+//         float:left;
+//       }
+//       .name{
+//         margin-top: auto;
+//       }
+//
+//
+//     }
+//     .aanhang{
+//       overflow: hidden;
+//       display: flex;
+//       align-items: center;
+//       padding: 5px 0 5px 30px;
+//       -moz-box-shadow:    inset 0 0 5px #ccc;
+//       -webkit-box-shadow: inset 0 0 5px #ccc;
+//       box-shadow:         inset 0 0 5px #ccc;
+//       border-radius: 3px;
+//       background-color: #EBEBEB;
+//
+//       .aan-icon{
+//         width: 20px;
+//       }
+//
+//       img{
+//         float:left;
+//       }
+//       .name{
+//         margin-top: 5px;
+//         margin-bottom: 5px;
+//         margin-left: 10px;
+//         font-size: 12px;
+//       }
+//     }
+//   }
+
 .today{
-  margin-left: -15px;
-  margin-top: -15px;
-  padding: 3% 5% 3% 8%;
-  width: 100%;
-  background-color: $light-grey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-
-  .today-koken{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-
-    .button-cook{
-      background-color: #effcff!important;
-      color: #000!important;
-      margin-top: 10px;
-
-      &:hover{
-        color:#ccc!important;
-        box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08)!important;
-
-      }
-    }
-
-
-    .button{
-      width: 100%;
-      text-align: center;
-      padding: 8px;
-      background-color: #0000FF;
-      font-size: 14px;
-      font-weight: 600;
-      color: #ccc;
-
-
-      &:hover{
-        color:#fff;
-        box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
-
-      }
-    }
+  h2{
+    font-weight: bolder;
+    margin-top: 0px!important;
+    margin-bottom: 7px!important;
   }
-
-
-  .today-eater-form{
-    position: absolute;
-    // margin-left: 20px;
-    // width: 33.3%;
-    z-index: 100;
-    padding-left: 40%;
-    right: 0;
-    left:0;
+  h5{
+    font-weight: lighter;
   }
-
-
-  .today-people{
-    width:40%;
-    max-width: 400px;
-    min-width: 300px;
-    height:95%;
-    color:#ffffff;
-    background-color: $red-pink;
-    position: absolute;
-    display: flex;
-    z-index: 200;
-    margin-left: -30px;
-    box-shadow:$webflow-box-shadow;
-    border-radius:5px;
-    background: url("/static/img/vandaag_bg.jpg");
-    background-size: cover;
-
-
-    .peoples{
-      margin: 0.5%;
-      padding: 4px;
-      border: none;
-      width: 100%;
-      border-radius: 4px;
-    }
-
-    .peoples-2{
-      margin: 0.1%;
-      padding: 20px;
-      width: 100%;
-      max-width: 100%;
-      height: 100%;
-      border-radius: 2px;
-    }
-
-    .person{
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      .pers-icon{
-        width: 50px;
-        padding: 9px;
-      }
-
-      img{
-        float:left;
-      }
-      .name{
-        margin-top: auto;
-      }
-
-
-    }
-    .aanhang{
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      padding: 5px 0 5px 30px;
-      -moz-box-shadow:    inset 0 0 5px #ccc;
-      -webkit-box-shadow: inset 0 0 5px #ccc;
-      box-shadow:         inset 0 0 5px #ccc;
-      border-radius: 3px;
-      background-color: #EBEBEB;
-
-      .aan-icon{
-        width: 20px;
-      }
-
-      img{
-        float:left;
-      }
-      .name{
-        margin-top: 5px;
-        margin-bottom: 5px;
-        margin-left: 10px;
-        font-size: 12px;
-      }
-    }
-  }
+}
 
   .today-content{
     background-color: $white;
@@ -263,9 +405,6 @@ a:hover{
     position: relative;
     border-radius: 3px;
     z-index:1;
-
-
-  }
 }
 
 .button-side {

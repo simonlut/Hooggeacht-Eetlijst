@@ -2,18 +2,22 @@
 {% load staticfiles %}
 
 {% block content %}
-<a class="btn btn-primary" href="{% url 'accounts:attachment_create' %}">Aanhang Toevoegen</a>
+<a class="btn button" href="{% url 'accounts:attachment_create' %}">Aanhang Toevoegen</a>
 
 <div class="grid">
 
 {% for attachment in attachment_list %}
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
-    <h1>HOI</h1>
-    <h1>{{attachment.at_first_name}} {{attachment.at_last_name}}</h1>
-    <p>Vegeterian: {{attachment.at_veg}}</p>
-    <p>Allergies: {{attachment.at_allergy}}</p>
-    <a class="btn btn-secondary" href="{% url 'accounts:attachment_update' pk=attachment.pk %}">Edit</a>
-    <a class="btn btn-danger" href="{% url 'accounts:attachment_delete' pk=attachment.pk %}">Delete</a>
+    <div class="row">
+      <div class="card cook-form">
+        <h1>{{attachment.at_first_name}} {{attachment.at_last_name}}</h1>
+        <p>Vegeterian: {{attachment.at_veg}}</p>
+        <p>Allergies: {{attachment.at_allergy}}</p>
+        <a class="btn button" href="{% url 'accounts:attachment_update' pk=attachment.pk %}">Edit</a>
+        <a class="btn button" href="{% url 'accounts:attachment_delete' pk=attachment.pk %}">Delete</a>
+      </div>
+    </div>
+
   </div>
 {% endfor %}
 </div>

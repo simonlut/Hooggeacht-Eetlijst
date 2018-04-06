@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="row">
+
+      <div class="card cook-form col-sm-12 today">
+        <h2>{{day}}</h2>
+        <h5 class="center">{% now "j F Y" %}</h5>
+        {% include "posts/postcook_list.html" %}
+        {% include "posts/posteater_list.html" %}
+      </div>
+  </div>
+{% endblock %}

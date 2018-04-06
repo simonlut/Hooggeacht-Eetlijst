@@ -16,6 +16,7 @@ class PostEaterForm(forms.ModelForm):
         fields = ('eat','extra_eaters','attachment_eater','extra_eater_veg', 'extra_eater_allergy')
         model = PostEater
 
+
     def clean(self):
         submit_time = self.cleaned_data.get('submit_time')
         if PostEater.objects.filter(user=self.user,submit_time__date=date.today()).exists():
@@ -25,13 +26,14 @@ class PostEaterForm(forms.ModelForm):
             qs.delete()
 
 
+
 class PostCookForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
          self.user = kwargs.pop('user')
          super(PostCookForm, self).__init__(*args, **kwargs)
 
     class Meta:
-        fields = ('extra_eaters', 'extra_eater_veg', 'extra_eater_allergy')
+        fields = ('extra_eaters', 'extra_eater_veg', 'extra_eater_allergy','food','eat_time')
         model = PostCook
 
     def clean(self):

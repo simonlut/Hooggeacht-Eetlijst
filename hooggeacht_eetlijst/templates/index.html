@@ -1,24 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<script src="{% static 'js/gradient.js' %}"></script>
+<!--<script src="{% static 'js/gradient.js' %}"></script>
 
-<!-- <h2>{{ user.profile.housename }}</h2>
-<h4>{{ user.username }}</h4>
-<a href="{% url 'posts:posteater_create' %}"><button type="button" name="button" class="btn btn-primary">Mee-eten</button></a>
-<h3>Wie eten mee?</h3>
-
-<ul>
-  <li>Allergiën: {{ user.allergy }}</li>
-  <li>Vegatariër? {{ user.profile.vegetarian }}</li>
-  <li>Voorkeur voor eten: {{ user.profile.food_preference }}</li>
-</ul>-->
-{# <canvas id="canvas-basic"></canvas> #}
-<h2 class="today-title">Vandaag</h2>
   <div class="today">
 
 
-    <div class="today-content">
+    <div class="today-content card">
       <h2>{% now "j F Y" %}</h2>
       <hr class="m-t">
 
@@ -73,22 +61,113 @@ var myChart = new Chart(ctx, {
             </div>
         </div>
 
-      </div>
+      </div>-->
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+      </button>
 
-      <div class="today-people">
-        <div class="peoples">
-          <div class="peoples-2">
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<div class="row">
+
+      <div class="card cook-form col-sm-6 today">
+        <h2>Vandaag</h2>
+        <h5 class="center">{% now "j F Y" %}</h5>
         {% include "posts/postcook_list.html" %}
         {% include "posts/posteater_list.html" %}
       </div>
+      <div class="col-sm-6 time">
+        <a class="button button-cook" href="{% url 'posts:posteater_create' %}">Inschrijven</a>
+        <a class="button button-cook" href="{% url 'posts:postcook_create' %}">Koken</a>
+        <hr class="m-t">
+        <div class="card vandaag-info">
+          <h3>Info</h3>
+          {% for postcook in postcook_list %}
+            {% if postcook.extra_eater_allergy %}
+            <div class="alert alert-warning" role="alert">
+              Allergiën: {{ postcook.extra_eater_allergy}}
+            </div>
+            {% endif %}
+          {% endfor %}
+          <div class="row">
+            <div class="col-6">
+              <p>Wat gaan we eten?</p>
+              {% for postcook in postcook_list  %}
+              <p>{{ postcook.food }}</p>
+              {% endfor %}          <p>Uiterlijke opgeeftijd</p>
+              <p>Hoe laat?</p>
+              {% for postcook in postcook_list  %}
+              <p>{{ postcook.eat_time }}</p>
+              {% endfor %}
+            </div>
+            <div class="col-6">
+              <canvas id="myChart" data="[2,30]"></canvas>
+            </div>
+          </div>
+        </div>
     </div>
+  </div>
+<div class="row">
+  <div class="col-sm-12 image-front" >
+    <img data-kui-anim="fadeIn" class="img-fluid" src="{% static 'img/vegetables.jpg' %}">
+  </div>
+</div>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+          labels: ["Mee-eters", "Niet mee-eters"],
+          datasets: [{
+              data: [{{ posteater_list|length }}+{{ postcook_list|length }},10-{{ posteater_list|length }}-{{ postcook_list|length }}],
+              backgroundColor: [
+                  'rgba(255, 99, 132,1)',
+                  'rgba(54, 162, 235,1)',
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+        responsive:true,
+        legend:false,
+      }
+  });
+  });
+
+
+  </script>
+
+    <!--</div>
       </div>
     </div>
 
 
-  </div>
-  <h2 class="today-title">Toekomst</h2>
-    <div class="content-days">
+  </div> -->
+    {# <div class="content-days"> #}
 
     {# {% for post in posts  %}#}
       <!--<h1>Monday</h1>
@@ -342,7 +421,7 @@ var myChart = new Chart(ctx, {
         <p class="name">Jouk</p>
       </div>
     </div>
-  </div> -->
+  </div>
 
 
 

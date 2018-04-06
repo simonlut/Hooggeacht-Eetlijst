@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% load bootstrap4 %}
 {% load staticfiles %}
+<script src="{% static 'js/forms.js' %}"></script>
 
 {% block content %}
 
+<div class="card cook-form">
+<h2>Mee-eten</h2>
   <form method="POST">
       {% csrf_token %}
       {% bootstrap_form form %}
-      <input type="submit" class="btn button button-cook" value="Inschrijven">
+      <input type="submit" class="btn button form-button" value="Mee-eten">
   </form>
+</div>
+
 {% endblock %}

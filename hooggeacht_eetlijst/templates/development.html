@@ -9,6 +9,7 @@
 <script type='text/javascript' src="{% static 'js/moment.js' %}"></script>
 <script type='text/javascript' src="{% static 'js/fullcalendar.js' %}"></script>
 <script src="{% static 'js/jquery-ui-datepicker.js' %}"></script>
+<script src="{% static 'js/jquery.qtip.js' %}"></script>
 
 
 
@@ -24,7 +25,6 @@ $(document).ready(function() {
     $('#calendar').fullCalendar({
 
       events: '/schedule/api/occurrences?calendar_slug=hooggeacht',
-
           eventClick: function(event) {
               if (event.description) {
                   window.open(event.description);
@@ -36,7 +36,7 @@ $(document).ready(function() {
     left: 'prev,next,today',
     center: 'title',
     right: 'month,basicWeek,listDay'
-}
+},
     });
 });
 </script>

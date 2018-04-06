@@ -5,7 +5,15 @@ var animation = bodymovin.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'static/json/construction_site.json'
+  path: '../static/json/construction_site.json'
+})
+
+var animation = bodymovin.loadAnimation({
+  container: document.getElementById('ice'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: '../static/json/animation-w800-h600.json'
 })
 
 })

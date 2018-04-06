@@ -6,6 +6,9 @@ from django.utils import timezone
 from datetime import date
 
 
+class Intro(TemplateView):
+    template_name = 'intro.html'
+
 class HomePage(TemplateView):
     template_name = 'index.html'
 

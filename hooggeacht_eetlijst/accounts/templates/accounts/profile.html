@@ -3,16 +3,21 @@
 {% load staticfiles %}
 
 {% block content %}
+{% bootstrap_javascript jquery=True %}
+{% bootstrap_messages %}
 
-<div class="container form-container">
+<div class="card cook-form">
+
+<div class="container form-container ">
   <h2>{{user.profile.housename|title}}</h2>
-  <h5>{{user.username|title}}</h5>
+  <h2>{{user.username|title}}</h2>
   <form method="POST">
       {% csrf_token %}
-      {{ user_form.as_p}}
-      {{ profile_form.as_p}}
-      <input type="submit" class="btn btn-primary" value="Aanmelden">
+      {% bootstrap_form user_form %}
+      {% bootstrap_form profile_form %}
+      <input type="submit" class="btn button button-cook form-button" value="Aanmelden">
   </form>
+</div>
 </div>
 
 {% endblock %}

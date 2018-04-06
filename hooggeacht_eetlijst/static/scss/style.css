@@ -2,6 +2,52 @@ body {
   background-color: #f8f9fa;
   font-family: sans-serif; }
 
+.navbar-brand h2 {
+  font-weight: bolder;
+  font-family: sans-serif; }
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.intro-header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); }
+
+.intro.header-text {
+  font-family: 'Roboto', sans-serif; }
+  @media screen and (max-width: 575px) {
+    .intro.header-text {
+      width: 100%;
+      margin-right: 0; } }
+
+.bob {
+  width: 33.333% !important; }
+
+#ice svg {
+  width: 300%; }
+
+.intro.header-text h1 {
+  font-size: 6em;
+  font-weight: 900;
+  margin: 0;
+  margin-left: -5px; }
+
+.intro.header-text p {
+  font-size: 1.1em;
+  font-weight: 100;
+  margin: 0;
+  margin-bottom: 20px; }
+
+.button.intro, .intro.button--inverse, .intro.button-side--inverse, .content-days .day .intro.button--inverse {
+  padding: 10px 55px 10px 55px;
+  font-size: 0.8em; }
+
 #bp {
   width: 100%;
   height: 400px; }
@@ -25,6 +71,7 @@ body {
   text-transform: uppercase;
   letter-spacing: .025em;
   transition: all .15s ease;
+  text-decoration: none;
   cursor: pointer; }
   .button:hover, .button--inverse:hover, .button-side--inverse:hover, .content-days .day .button--inverse:hover {
     color: #ddd;
@@ -39,6 +86,45 @@ body {
       color: #fff;
       background-color: #ddd;
       text-decoration: none; }
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 40, 100, 0.12);
+  border-radius: 3px; }
+
+.cook-form {
+  padding: 18px 30px 30px 30px;
+  margin: 30px 0 30px 0;
+  max-width: 500px;
+  min-width: 300px;
+  margin-left: 30px; }
+
+.form-button {
+  width: 100%;
+  height: 40px;
+  background-color: blue; }
+
+.time {
+  padding: 18px 30px 30px 30px;
+  margin-top: 10px; }
+  .time h3 {
+    font-weight: bolder; }
+  .time .button, .time .button--inverse, .time .button-side--inverse, .time .content-days .day .button--inverse, .content-days .day .time .button--inverse {
+    padding: 10px 10% 10px 10%; }
+
+.vandaag-info {
+  padding: 18px 30px 30px 30px; }
+
+.image-front {
+  padding: 20px 30px 30px 30%; }
 
 .navbar-nav {
   display: flex;
@@ -65,112 +151,23 @@ a {
 a:hover {
   color: #000000; }
 
-.today {
-  margin-left: -15px;
-  margin-top: -15px;
-  padding: 3% 5% 3% 8%;
+.today h2 {
+  font-weight: bolder;
+  margin-top: 0px !important;
+  margin-bottom: 7px !important; }
+
+.today h5 {
+  font-weight: lighter; }
+
+.today-content {
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
   width: 100%;
-  background-color: #f8f9fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 90%;
+  min-height: 500px;
+  position: relative;
+  border-radius: 3px;
   z-index: 1; }
-  .today .today-koken {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%; }
-    .today .today-koken .button-cook {
-      background-color: #effcff !important;
-      color: #000 !important;
-      margin-top: 10px; }
-      .today .today-koken .button-cook:hover {
-        color: #ccc !important;
-        box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08) !important; }
-    .today .today-koken .button, .today .today-koken .button--inverse, .today .today-koken .button-side--inverse {
-      width: 100%;
-      text-align: center;
-      padding: 8px;
-      background-color: #0000FF;
-      font-size: 14px;
-      font-weight: 600;
-      color: #ccc; }
-      .today .today-koken .button:hover, .today .today-koken .button--inverse:hover, .today .today-koken .button-side--inverse:hover {
-        color: #fff;
-        box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08); }
-  .today .today-eater-form {
-    position: absolute;
-    z-index: 100;
-    padding-left: 40%;
-    right: 0;
-    left: 0; }
-  .today .today-people {
-    width: 40%;
-    max-width: 400px;
-    min-width: 300px;
-    height: 95%;
-    color: #ffffff;
-    background-color: #FF8F96;
-    position: absolute;
-    display: flex;
-    z-index: 200;
-    margin-left: -30px;
-    box-shadow: 0 5px 15px -2px rgba(10, 16, 34, 0.4);
-    border-radius: 5px;
-    background: url("/static/img/vandaag_bg.jpg");
-    background-size: cover; }
-    .today .today-people .peoples {
-      margin: 0.5%;
-      padding: 4px;
-      border: none;
-      width: 100%;
-      border-radius: 4px; }
-    .today .today-people .peoples-2 {
-      margin: 0.1%;
-      padding: 20px;
-      width: 100%;
-      max-width: 100%;
-      height: 100%;
-      border-radius: 2px; }
-    .today .today-people .person {
-      overflow: hidden;
-      display: flex;
-      align-items: center; }
-      .today .today-people .person .pers-icon {
-        width: 50px;
-        padding: 9px; }
-      .today .today-people .person img {
-        float: left; }
-      .today .today-people .person .name {
-        margin-top: auto; }
-    .today .today-people .aanhang {
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      padding: 5px 0 5px 30px;
-      -moz-box-shadow: inset 0 0 5px #ccc;
-      -webkit-box-shadow: inset 0 0 5px #ccc;
-      box-shadow: inset 0 0 5px #ccc;
-      border-radius: 3px;
-      background-color: #EBEBEB; }
-      .today .today-people .aanhang .aan-icon {
-        width: 20px; }
-      .today .today-people .aanhang img {
-        float: left; }
-      .today .today-people .aanhang .name {
-        margin-top: 5px;
-        margin-bottom: 5px;
-        margin-left: 10px;
-        font-size: 12px; }
-  .today .today-content {
-    background-color: #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
-    width: 100%;
-    height: 90%;
-    min-height: 500px;
-    position: relative;
-    border-radius: 3px;
-    z-index: 1; }
 
 .button-side {
   margin: auto;

@@ -117,6 +117,11 @@ class PostCookDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('home')
 
 class PostDayArchiveView(LoginRequiredMixin, DayArchiveView):
+    queryset = PostCook.objects.all()
+    date_field = "submit_time"
+    allow_future = True
+
+class PostEatDayArchiveView(LoginRequiredMixin, DayArchiveView):
     queryset = PostEater.objects.all()
     date_field = "submit_time"
     allow_future = True

@@ -28,33 +28,6 @@ class PostEater(models.Model):
     description = models.CharField(max_length=30 , blank=True)
     startDateTime = models.DateTimeField(auto_now_add=True)
 
-    def save(self, force_insert=False, force_update=False):
-        new_task = False
-        if not self.id:
-            new_task = True
-        super(PostEater, self).save(force_insert, force_update)
-        end = self.startDateTime + timedelta(minutes=24*60)
-        description = "http://127.0.0.1:8000/posts/"+str(self.submit_time.strftime("%Y/%b/%d"))
-        if new_task:
-            event = Event(start=self.startDateTime, end=end, title=self.user,
-                      description=description, calendar_id=1)
-            event.save()
-            rel = EventRelation.objects.create_relation(event, self)
-            rel.save()
-            try:
-                cal = Calendar.objects.get(name="hooggeacht")
-            except Calendar.DoesNotExist:
-                cal = Calendar(name="bla")
-                cal.save()
-            cal.events.add(event)
-        else:
-            event = Event.objects.get_for_object(self)[0]
-            event.start = self.startDateTime
-            event.end = end
-            event.title = title
-            event.description = self.description
-            event.save()
-
     def get_absolute_url(self):
         return reverse("home")
 
@@ -78,12 +51,14 @@ class PostEater(models.Model):
 
 class PostCook(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    # eat_time = models.TimeField() #standaard half 6
-    # food = models.CharField(max_length=30, blank=True)
+    eat_time = models.TimeField(auto_now=False,default="18:30") #standaard half 6
+    food = models.CharField(max_length=30, blank=True)
     extra_eaters = models.PositiveSmallIntegerField(default=0,blank=True)
     extra_eater_veg = models.PositiveSmallIntegerField(default=0,blank=True) #Number slider
     extra_eater_allergy = models.CharField(default=0,max_length=124, blank=True)
-    submit_time = models.DateTimeField()
+    submit_time = models.DateTimeField(auto_now_add=True)
+    description = models.CharField(max_length=30 , blank=True)
+    startDateTime = models.DateTimeField(auto_now_add=True)
     eater = models.OneToOneField(
             PostEater,
             on_delete=models.CASCADE,
@@ -97,11 +72,11 @@ class PostCook(models.Model):
     def __str__(self):
         return self.user.username + str(self.submit_time)
 
-    #
-    def save(self, *args, **kwargs):
-            ''' On save, update timestamps '''
-            self.submit_time = timezone.now()
-            return super(PostCook, self).save(*args, **kwargs)
+    # #
+    # def save(self, *args, **kwargs):
+    #         ''' On save, update timestamps '''
+    #         self.submit_time = timezone.now()
+    #         return super(PostCook, self).save(*args, **kwargs)
 
     # def validate_unique(self, exclude=None):
     #     qs = PostCook.objects.filter(submit_time__date=date.today())
@@ -110,3 +85,28 @@ class PostCook(models.Model):
     #     s = PostEater.objects.filter(submit_time__date=date.today())
     #     if s.exists():
     #             s.delete()
+
+    def save(self, force_insert=False, force_update=False):
+        new_task = True
+        super(PostCook, self).save(force_insert, force_update)
+        end = self.startDateTime + timedelta(minutes=1)
+        description = "http://127.0.0.1:8000/posts/"+str(self.submit_time.strftime("%Y/%b/%d"))
+        if new_task:
+            event = Event(start=self.startDateTime, end=end, title=self.user,
+                      description=description, calendar_id=1)
+            event.save()
+            rel = EventRelation.objects.create_relation(event, self)
+            rel.save()
+            try:
+                cal = Calendar.objects.get(name="hooggeacht")
+            except Calendar.DoesNotExist:
+                cal = Calendar(name="bla")
+                cal.save()
+            cal.events.add(event)
+        else:
+            event = Event.objects.get_for_object(self)[0]
+            event.start = self.startDateTime
+            event.end = end
+            event.title = title
+            event.description = self.description
+            event.save()

@@ -1,13 +1,32 @@
 {% load staticfiles %}
-  {% for posteater in posteater_list %}
-  <div class="person">
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Naam</th>
+      <th>Inschrijftijd</th>
+      <th>Email</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for posteater in posteater_list %}
+    <tr>
+      <td>  <img class="rounded-circle img-fluid" style="width:40px;"src="{% static 'img/account_icon.png'%}"></img></td>
+      <td>{{ posteater.user|title }}</td>
+      <td>{{ posteater.submit_time|date:'H:i' }}</td>
+      <td><img class="cutlery" src="{% static 'img/cutlery.png'%}"></img></td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+  <!-- <div class="person">
     <img class="rounded-circle pers-icon " src="{% static 'img/account_icon.png'%}"></img>
     <p class="name">{{ posteater.user|title }}</p>
     <p class="aanhang_post">{{ posteater.extra_eaters }}</p>
     <p class="aanhang_post">{{ posteater.submit_time|date:'H:i' }}</p>
-    {% if attachment_eater %}
-    {# <p>{{ posteater.attachment_eater. }}</p> #}
+    {% if attachment_eater in posteater %}
+    <p>{{ posteater.attachment_eaters }}</p>
     {% endif %}
     <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-  </div>
-  {% endfor %}
+  </div> -->

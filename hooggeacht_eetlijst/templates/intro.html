@@ -1,0 +1,28 @@
+
+{% load sass_tags %}
+{% load staticfiles %}
+
+<link href="{% sass_src 'scss/style.scss' %}" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/kissui.scrollanim/0.3.0/scrollanim.min.css" />
+
+<div class="intro-header">
+  <div data-kui-anim="fadeIn" class="intro header-text" id="header-text">
+    <h1>Foetsol</h1>
+    <p >Dé eetlijst voor studenten.</p>
+    <a class="button intro" href="{% url 'accounts:login' %}">Login</a>
+  </div>
+  <div class="bob">
+    <div id="ice">
+
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/kissui.scrollanim/0.3.0/scrollanim.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin_light.js"></script>
+<script src="{% static 'js/animations.js' %}"></script>
