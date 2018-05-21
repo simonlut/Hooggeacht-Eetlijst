@@ -151,6 +151,21 @@ a {
 a:hover {
   color: #000000; }
 
+.aanhang, .extra_eaters {
+  background: #F8F9FA;
+  box-shadow: inset 0px 0px 7px 0px #e1dcdd;
+  border-radius: 4px; }
+
+.thead-2 {
+  font-size: 13px;
+  font-weight: lighter;
+  font-style: italic; }
+
+.tbody-cook {
+  background-color: #fbfbfb;
+  box-shadow: 0px 0px 3px #d3c8c8;
+  border-radius: 4px; }
+
 .today h2 {
   font-weight: bolder;
   margin-top: 0px !important;

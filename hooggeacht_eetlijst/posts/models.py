@@ -56,9 +56,9 @@ class PostCook(models.Model):
     extra_eaters = models.PositiveSmallIntegerField(default=0,blank=True)
     extra_eater_veg = models.PositiveSmallIntegerField(default=0,blank=True) #Number slider
     extra_eater_allergy = models.CharField(default=0,max_length=124, blank=True)
-    submit_time = models.DateTimeField(auto_now_add=True)
     description = models.CharField(max_length=30 , blank=True)
-    startDateTime = models.DateTimeField(auto_now_add=True)
+    startDateTime = models.DateTimeField(auto_now=True)
+    submit_time = models.DateTimeField(auto_now=True)
     eater = models.OneToOneField(
             PostEater,
             on_delete=models.CASCADE,
@@ -72,11 +72,12 @@ class PostCook(models.Model):
     def __str__(self):
         return self.user.username + str(self.submit_time)
 
-    # #
-    # def save(self, *args, **kwargs):
-    #         ''' On save, update timestamps '''
-    #         self.submit_time = timezone.now()
-    #         return super(PostCook, self).save(*args, **kwargs)
+
+    #
+    def save(self, *args, **kwargs):
+            ''' On save, update timestamps '''
+            self.submit_time = timezone.now()
+            return super(PostCook, self).save(*args, **kwargs)
 
     # def validate_unique(self, exclude=None):
     #     qs = PostCook.objects.filter(submit_time__date=date.today())

@@ -2,20 +2,58 @@
   <table class="table">
   <thead>
     <tr>
-      <th>Naam</th>
-      <th>Inschrijftijd</th>
-      <th>Email</th>
-      <th>b</th>
+
     </tr>
   </thead>
   <tbody>
     {% for posteater in posteater_list %}
-    <tr>
-      <td>  <img class="rounded-circle img-fluid" style="width:40px;"src="{% static 'img/account_icon.png'%}"></img></td>
+    <tr class="tr-eetlijst">
+      <td>  <img class="rounded-circle img-fluid" style="width:40px;"src="{% static 'img/account_icon.png'%}"></img><p>+1</p></td>
       <td>{{ posteater.user|title }}</td>
+      <td>+4</td>
       <td>{{ posteater.submit_time|date:'H:i' }}</td>
       <td><img class="cutlery" src="{% static 'img/cutlery.png'%}"></img></td>
     </tr>
+      {% if posteater.extra_eaters %}
+      <thead class="thead-2">
+        <tr>
+          <th>+1'tjes</th>
+          <th>Aantal</th>
+          <th>Veggies</th>
+          <th>Allergiën</th>
+        </tr>
+      </thead>
+      <tr class="extra_eaters">
+        <td><img class="rounded-circle img-fluid" style="width:40px;"src="{% static 'img/account_icon.png'%}"></img></td>
+        <td>+{{ posteater.extra_eaters }}</td>
+        <td>{{ posteater.extra_eater_veg }}</td>
+        <td>{{ posteater.extra_eater_allergy }}</td>
+      </tr>
+      {% endif %}
+      {% if posteater.attachment_eater %}
+      <thead class="thead-2">
+        <tr>
+          <th>Aanhang</th>
+          <th>Aantal</th>
+          <th>Veggie?</th>
+          <th>Allergiën</th>
+        </tr>
+      </thead>
+      <tr class="aanhang">
+        <td><img class="rounded-circle img-fluid" style="width:40px;"src="{% static 'img/account_icon.png'%}"></img></td>
+        <td>{{ posteater.attachment_eater }}</td>
+        {% if posteater.attachment_eater.at_veg %}
+        <td>Jep</td>
+        {% else %}
+        <td>VLEESH</td>
+        {% endif %}
+        {% if posteater.attachment_eater.at_allergy %}
+        <td>{{ posteater.attachment_eater.at_allergy }}</td>
+        {% else %}
+        <td>Nein</td>
+        {% endif %}
+      </tr>
+      {% endif %}
     {% endfor %}
 
   </tbody>
