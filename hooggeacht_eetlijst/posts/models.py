@@ -49,6 +49,34 @@ class PostEater(models.Model):
     #     if s.exists():
     #         s.delete()
 
+    def save(self, force_insert=False, force_update=False):
+        new_task = True
+        super(PostEater, self).save(force_insert, force_update)
+        end = self.startDateTime + timedelta(minutes=1)
+        color = '#A41515'
+        description = "http://127.0.0.1:8000/posts/"+str(self.submit_time.strftime("%Y/%b/%d"))
+        user_short = self.user.profile.housename
+        if new_task:
+            event = Event(start=self.startDateTime, end=end, title=user_short,
+                      description=description, calendar_id=1)
+            event.save()
+            rel = EventRelation.objects.create_relation(event, self)
+            rel.save()
+            try:
+                cal = Calendar.objects.get(name="hooggeacht")
+            except Calendar.DoesNotExist:
+                cal = Calendar(name="bla")
+                cal.save()
+            cal.events.add(event)
+        else:
+            event = Event.objects.get_for_object(self)[0]
+            event.start = self.startDateTime
+            event.end = end
+            event.title = title
+            event.description = self.description
+            event.eventColor = self.color
+            event.save()
+
 class PostCook(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     eat_time = models.TimeField(auto_now=False,default="18:30") #standaard half 6
@@ -93,7 +121,7 @@ class PostCook(models.Model):
         end = self.startDateTime + timedelta(minutes=1)
         description = "http://127.0.0.1:8000/posts/"+str(self.submit_time.strftime("%Y/%b/%d"))
         if new_task:
-            event = Event(start=self.startDateTime, end=end, title=self.user,
+            event = Event(start=self.startDateTime, end=end, title="Kok: "+str(self.user),
                       description=description, calendar_id=1)
             event.save()
             rel = EventRelation.objects.create_relation(event, self)
@@ -110,4 +138,5 @@ class PostCook(models.Model):
             event.end = end
             event.title = title
             event.description = self.description
+            event.color_event = '#A41515'
             event.save()

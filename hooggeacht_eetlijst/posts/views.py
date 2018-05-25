@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import CreateView, TemplateView, DeleteView, UpdateView, DetailView, ListView, DayArchiveView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.views import OwnObjectsMixin
+from accounts.models import Profile
 
 from posts.forms import PostEaterForm, PostCookForm
 from posts.models import PostEater, PostCook
@@ -121,7 +122,7 @@ class PostDayArchiveView(LoginRequiredMixin, DayArchiveView):
     date_field = "submit_time"
     allow_future = True
 
-class PostEatDayArchiveView(LoginRequiredMixin, DayArchiveView):
-    queryset = PostEater.objects.all()
-    date_field = "submit_time"
-    allow_future = True
+    def get_context_data(self, **kwargs):
+        context = super(PostDayArchiveView, self).get_context_data(**kwargs)
+        context['posteater_list'] = PostEater.objects.filter(submit_time__date=date.today()).order_by('-submit_time')
+        return context

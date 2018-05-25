@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'logout/$', auth_views.LogoutView.as_view(), name="logout"),
     url(r'signup/$', views.SignUp.as_view(), name="signup"),
     url(r'profile/$', views.update_profile, name="profile"),
+    url(r'^profile/list/$', views.ProfileListView.as_view(), name="profile_list"),
     url(r'^aanhang/$',views.AttachmentCreateView.as_view(), name="attachment_create"),
     url(r'^aanhang/list/$', views.AttachmentListView.as_view(), name="attachment_list"),
     url(r'^aanhang/(?P<pk>\d+)$', views.AttachmentDetailView.as_view(), name="attachment_detail"),

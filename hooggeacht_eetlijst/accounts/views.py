@@ -13,6 +13,8 @@ from django.db import transaction
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+
 
 
 class OwnObjectsMixin():
@@ -86,3 +88,9 @@ class AttachmentUpdateView(LoginRequiredMixin, UpdateView):
 class AttachmentDeleteView(LoginRequiredMixin, DeleteView):
     model = Attachment
     success_url = reverse_lazy('accounts:attachment_list')
+
+class ProfileListView(LoginRequiredMixin, ListView):
+    login_url = '/accounts/login/'
+    redirect_field_name = 'accounts/profile_list.html'
+
+    model = Profile

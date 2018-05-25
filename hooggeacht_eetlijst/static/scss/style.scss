@@ -20,8 +20,7 @@ $break-xs: 575px;
 
 // Small devices (landscape phones, less than 768px)
 // @media (max-width: 767px) { ... }
-$break-s: 575px;
-
+$break-s: 768px;
 
 // Medium devices (tablets, less than 992px)
 // @media (max-width: 991px) { ... }
@@ -32,10 +31,49 @@ $break-m: 991px;
 $break-l: 1199px;
 
 
-body{
-background-color: $light-grey;
+
+
+body,html{
 font-family: sans-serif;
+height:100%
 }
+
+.index-content{
+  padding: 86px 40px 0px 40px;
+  height:100%;
+  @media screen and (max-width: $break-xs) {
+  padding: 64px 10px 0px 10px;
+  }
+}
+
+.header-img{
+  background-image: url('/static/img/collage3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height:25%;
+
+  h1{
+    text-align: center;
+    font-size: 5em;
+    font-weight: bolder;
+  }
+
+  .sub-text{
+
+    text-align: center;
+    text-overflow: clip;
+    background-color:orange;
+    color: white;
+    width:200px;
+
+    h3{
+      font-size:1.7em;
+    }
+  }
+}
+
+
 
 .navbar-brand{
   h2{
@@ -110,6 +148,12 @@ font-family: sans-serif;
 // buttons
 // ---------------------------------------------------------------------------------------------
 
+// custom-checkbox
+.form-button{
+  width:100%;
+  height: 40px;
+}
+
 .buttons{
   display: flex;
   align-items: center;
@@ -117,43 +161,43 @@ font-family: sans-serif;
   height: 100%;
 }
 
-.button {
-  margin: auto;
-  // height: 30px;
-  line-height: 30px;
-  padding: 0 12px;
-  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-  background: $white;
-  color: $purple;
-  border-radius: 3px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .025em;
-  transition: all .15s ease;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    color: $light-purple;
-    transform: translateY(-1px);
-    box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
-    text-decoration: none;
-  }
-
-  &--inverse {
-    @extend .button;
-    color: $white;
-    background: $purple;
-    text-decoration: none;
-
-    &:hover {
-      color: $white;
-      background-color: $light-purple;
-      text-decoration: none;
-    }
-  }
-}
+// .button {
+//   margin: auto;
+//   // height: 30px;
+//   line-height: 30px;
+//   padding: 0 12px;
+//   box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+//   background: $white;
+//   color: $purple;
+//   border-radius: 3px;
+//   font-size: 12px;
+//   font-weight: 600;
+//   text-transform: uppercase;
+//   letter-spacing: .025em;
+//   transition: all .15s ease;
+//   text-decoration: none;
+//   cursor: pointer;
+//
+//   &:hover {
+//     color: $light-purple;
+//     transform: translateY(-1px);
+//     box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+//     text-decoration: none;
+//   }
+//
+//   &--inverse {
+//     @extend .button;
+//     color: $white;
+//     background: $purple;
+//     text-decoration: none;
+//
+//     &:hover {
+//       color: $white;
+//       background-color: $light-purple;
+//       text-decoration: none;
+//     }
+//   }
+// }
 
 // ---------------------------------------------------------------------------------------------
 // cards
@@ -179,29 +223,61 @@ font-family: sans-serif;
 
 .cook-form{
   padding: 18px 30px 30px 30px;
-  margin: 30px 0 30px 0;
-  max-width: 500px;
-  min-width: 300px;
-  margin-left:30px;
+  width:500px;
+
+  @media screen and (max-width: $break-xs) {
+  width: 300px;
+  }
+
+  @media screen and (max-width: $break-s) {
+  width: 350px;
+  }
+
+  @media screen and (max-width: $break-m) {
+  width:400px;
+}
 }
 
-// custom-checkbox
-.form-button{
-  width:100%;
-  height: 40px;
-  background-color:blue;
+
+
+
+//inschrijven
+.index-content{
+  padding-bottom: 40px;
+
+  .inschrijven{
+    background-image: url('/static/img/collage2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .koken{
+    background-image: url('/static/img/collage1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
+
+
+
+
 // -------------------------------------------------------------
 // front page
 // -------------------------------------------------------------
 .time{
-  padding: 18px 30px 30px 30px;
-  margin-top: 10px;
+  padding: 0px 0px 30px 30px;
   h3{
     font-weight: bolder;
-  }
-  .button{
-    padding:10px 10% 10px 10%;
   }
 }
 
@@ -214,10 +290,6 @@ font-family: sans-serif;
 
 }
 
-.navbar-nav{
-    display: flex;
-    justify-content: center;
-}
 
 .navbar{
   position: fixed;
@@ -226,13 +298,8 @@ font-family: sans-serif;
   background-color:$white;
   z-index: 2;
   .navbar-brand{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 0;
-    padding-bottom: 0;
-    padding-right: 16px;
-    padding-left: 0px;
+
+    padding-left: 24px;
   }
 }
 
@@ -265,7 +332,7 @@ border-radius: 4px;
 }
 
 .tr-eetlijst{
-  
+
 }
 
 // .today{
@@ -712,4 +779,44 @@ h1 {
 
   }
   }
+}
+
+
+
+// -------------------------------------------------------------
+// KALENDER
+// -------------------------------------------------------------
+.kalender{
+  background-image: url('/static/img/collage3.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: -64px -40px -40px -40px;
+  padding: 30px;
+}
+
+#calendar{
+  background-color:white;
+  padding: 30px;
+  background-color: #fff;
+background-clip: border-box;
+border: 1px solid rgba(0,0,0,.125);
+border-radius: .25rem;
+}
+
+
+// -------------------------------------------------------------
+// FOOTER
+// -------------------------------------------------------------
+.footer{
+    // background-image: url('/static/img/RedLeaves.png');  
+    background-color: #F2DC65;
+    background-size: 600px;
+    background-position: center;
+    background-repeat: repeat;
+    height:20%;
+    h1,p{
+      padding-top:20px;
+      color: $white;
+      text-align: center;
+    }
 }

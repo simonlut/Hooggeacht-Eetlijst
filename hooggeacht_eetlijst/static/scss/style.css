@@ -1,6 +1,32 @@
-body {
-  background-color: #f8f9fa;
-  font-family: sans-serif; }
+body, html {
+  font-family: sans-serif;
+  height: 100%; }
+
+.index-content {
+  padding: 86px 40px 0px 40px;
+  height: 100%; }
+  @media screen and (max-width: 575px) {
+    .index-content {
+      padding: 64px 10px 0px 10px; } }
+
+.header-img {
+  background-image: url("/static/img/collage3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 25%; }
+  .header-img h1 {
+    text-align: center;
+    font-size: 5em;
+    font-weight: bolder; }
+  .header-img .sub-text {
+    text-align: center;
+    text-overflow: clip;
+    background-color: orange;
+    color: white;
+    width: 200px; }
+    .header-img .sub-text h3 {
+      font-size: 1.7em; }
 
 .navbar-brand h2 {
   font-weight: bolder;
@@ -44,7 +70,7 @@ body {
   margin: 0;
   margin-bottom: 20px; }
 
-.button.intro, .intro.button--inverse, .intro.button-side--inverse, .content-days .day .intro.button--inverse {
+.button.intro, .intro.button-side--inverse, .content-days .day .intro.button--inverse {
   padding: 10px 55px 10px 55px;
   font-size: 0.8em; }
 
@@ -52,40 +78,15 @@ body {
   width: 100%;
   height: 400px; }
 
+.form-button {
+  width: 100%;
+  height: 40px; }
+
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%; }
-
-.button, .button--inverse, .button-side--inverse, .content-days .day .button--inverse {
-  margin: auto;
-  line-height: 30px;
-  padding: 0 12px;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  background: #fff;
-  color: #868e96;
-  border-radius: 3px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .025em;
-  transition: all .15s ease;
-  text-decoration: none;
-  cursor: pointer; }
-  .button:hover, .button--inverse:hover, .button-side--inverse:hover, .content-days .day .button--inverse:hover {
-    color: #ddd;
-    transform: translateY(-1px);
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-    text-decoration: none; }
-  .button--inverse {
-    color: #fff;
-    background: #868e96;
-    text-decoration: none; }
-    .button--inverse:hover {
-      color: #fff;
-      background-color: #ddd;
-      text-decoration: none; }
 
 .card {
   position: relative;
@@ -102,33 +103,48 @@ body {
 
 .cook-form {
   padding: 18px 30px 30px 30px;
-  margin: 30px 0 30px 0;
-  max-width: 500px;
-  min-width: 300px;
-  margin-left: 30px; }
+  width: 500px; }
+  @media screen and (max-width: 575px) {
+    .cook-form {
+      width: 300px; } }
+  @media screen and (max-width: 768px) {
+    .cook-form {
+      width: 350px; } }
+  @media screen and (max-width: 991px) {
+    .cook-form {
+      width: 400px; } }
 
-.form-button {
-  width: 100%;
-  height: 40px;
-  background-color: blue; }
+.index-content {
+  padding-bottom: 40px; }
+  .index-content .inschrijven {
+    background-image: url("/static/img/collage2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .index-content .koken {
+    background-image: url("/static/img/collage1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 .time {
-  padding: 18px 30px 30px 30px;
-  margin-top: 10px; }
+  padding: 0px 0px 30px 30px; }
   .time h3 {
     font-weight: bolder; }
-  .time .button, .time .button--inverse, .time .button-side--inverse, .time .content-days .day .button--inverse, .content-days .day .time .button--inverse {
-    padding: 10px 10% 10px 10%; }
 
 .vandaag-info {
   padding: 18px 30px 30px 30px; }
 
 .image-front {
   padding: 20px 30px 30px 30%; }
-
-.navbar-nav {
-  display: flex;
-  justify-content: center; }
 
 .navbar {
   position: fixed;
@@ -137,13 +153,7 @@ body {
   background-color: #fff;
   z-index: 2; }
   .navbar .navbar-brand {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 0;
-    padding-bottom: 0;
-    padding-right: 16px;
-    padding-left: 0px; }
+    padding-left: 24px; }
 
 a {
   color: #000000; }
@@ -385,5 +395,31 @@ h1 {
     .row .col-sm-2 .content {
       padding: 20px;
       border: solid 2px red; }
+
+.kalender {
+  background-image: url("/static/img/collage3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: -64px -40px -40px -40px;
+  padding: 30px; }
+
+#calendar {
+  background-color: white;
+  padding: 30px;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: .25rem; }
+
+.footer {
+  background-color: #F2DC65;
+  background-size: 600px;
+  background-position: center;
+  background-repeat: repeat;
+  height: 20%; }
+  .footer h1, .footer p {
+    padding-top: 20px;
+    color: #fff;
+    text-align: center; }
 
 /*# sourceMappingURL=/static/scss/style.css.map */

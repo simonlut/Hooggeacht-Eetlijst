@@ -6,12 +6,15 @@
 {% if user.is_authenticated %}
 
 <link rel='stylesheet' type='text/css' href="{% static 'css/fullcalendar.css' %}" />
-<script type='text/javascript' src="{% static 'js/moment.js' %}"></script>
+<link rel='stylesheet' type='text/css' href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+{# <link rel='stylesheet' type='text/css' href="https://fullcalendar.io/releases/fullcalendar/3.9.0/fullcalendar.min.css" /> #}
+
+
 <script type='text/javascript' src="{% static 'js/fullcalendar.js' %}"></script>
 <script src="{% static 'js/jquery-ui-datepicker.js' %}"></script>
 <script src="{% static 'js/jquery.qtip.js' %}"></script>
 
-
+<div class="kalender">
 
 
 <div id="calendar"></div>
@@ -23,22 +26,23 @@
 $(document).ready(function() {
     // page is now ready, initialize the calendar...
     $('#calendar').fullCalendar({
-
+      themeSystem: 'jquery-ui',
       events: '/schedule/api/occurrences?calendar_slug=hooggeacht',
           eventClick: function(event) {
               if (event.description) {
                   window.open(event.description);
                   return false;
               }
-          },
-
-          header: {
-    left: 'prev,next,today',
-    center: 'title',
-    right: 'month,basicWeek,listDay'
+            },
+    header: {
+      left: 'prev,next,today',
+      center: 'title',
+      right: 'month,basicWeek,listDay',
 },
     });
 });
 </script>
+</div>
+
 {% endif %}
 {% endblock %}

@@ -1,103 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<!--<script src="{% static 'js/gradient.js' %}"></script>
-
-  <div class="today">
-
-
-    <div class="today-content card">
-      <h2>{% now "j F Y" %}</h2>
-      <hr class="m-t">
-
-      <div class="today-eater-form">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="today-koken">
-              <a class="button button-cook" href="{% url 'posts:postcook_create' %}">Koken</a>
-            </div>
-
-              <div id="bm" class="img-responsive">
-
-              </div>
-              {# {% include "posts/posteater_form.html" %} #}
-              <div class="today-koken">
-                <a class="button button-cook" href="{% url 'posts:posteater_create' %}">Inschrijven</a>
-                <a class="button" href="{% url 'posts:archive_day' year=2018 month='jan' day=28 %}">WADDUP</a>
-              </div>
-            </div>
-          <div class="col-lg-6 stats">
-            <p>Hier komen statistiekjes enzo</p>
-            <canvas id="myChart" data="[2,30]"></canvas>
-<script type="text/javascript">
-$(document).ready(function(){
-  var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: ["Mee-eters", "Niet mee-eters"],
-        datasets: [{
-            data: [{{ posteater_list|length }}+{{ postcook_list|length }},10-{{ posteater_list|length }}-{{ postcook_list|length }}],
-            backgroundColor: [
-                'rgba(255, 99, 132,1)',
-                'rgba(54, 162, 235,1)',
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-      responsive:true,
-      legend:false,
-    }
-});
-});
-
-
-</script>
-            </div>
-        </div>
-
-      </div>-->
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="header-img col-sm-12">
+  <h1>FOETSOL</h1>
+  <div class="sub-text">
+    <h3>De eetlijst voor studenten.</h3>
+  </div>
+</div>
+{% if user.is_authenticated %}
 <div class="row">
-
-      <div class="card cook-form col-sm-6 today">
-        <h2>Vandaag</h2>
-        <h5 class="center">{% now "j F Y" %}</h5>
-        {% include "posts/postcook_list.html" %}
-        {% include "posts/posteater_list.html" %}
+      <div class="card  col-md-6 today">
+        <div class="cook-form">
+          <h2>Vandaag</h2>
+          <h5 class="center">{% now "j F Y" %}</h5>
+          {% include "posts/postcook_list.html" %}
+          {% include "posts/posteater_list.html" %}
+          {% include "accounts/profile_list.html" %}
+        </div>
       </div>
-      <div class="col-sm-6 time">
-        <a class="button button-cook" href="{% url 'posts:posteater_create' %}">Inschrijven</a>
-        <a class="button button-cook" href="{% url 'posts:postcook_create' %}">Koken</a>
+      <div class="col-md-6">
+        <div class="time">
+        <a class="btn btn-secondary" href="{% url 'posts:posteater_create' %}">Inschrijven</a>
+        <a class="btn btn-secondary" href="{% url 'posts:postcook_create' %}">Koken</a>
         <hr class="m-t">
         <div class="card vandaag-info">
           <h3>Info</h3>
@@ -124,14 +48,14 @@ var myChart = new Chart(ctx, {
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
-<div class="row">
-  <div class="col-sm-12 image-front" >
-    <img data-kui-anim="fadeIn" class="img-fluid" src="{% static 'img/vegetables.jpg' %}">
-  </div>
-</div>
-  <script type="text/javascript">
+
+{% endif %}
+
+
+  <!--<script type="text/javascript">
   $(document).ready(function(){
     var ctx = document.getElementById("myChart").getContext('2d');
   var myChart = new Chart(ctx, {
@@ -159,270 +83,5 @@ var myChart = new Chart(ctx, {
   });
 
 
-  </script>
-
-    <!--</div>
-      </div>
-    </div>
-
-
-  </div> -->
-    {# <div class="content-days"> #}
-
-    {# {% for post in posts  %}#}
-      <!--<h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Koken</a>
-        <a class='button'>Niet</a>
-      </div>
-      <p>7 vlees</p>
-      <p>2 veggie</p>
-      <div class="peoples">
-        <div class="person kok">
-          <img class="rounded-circle pers-icon " src="{% static 'img/account_icon.png'%}"></img>
-          <p class="name">Jouk</p>
-        </div>
-        <div class="person">
-          <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-          <p class="name">Sander</p>
-          <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-        </div>
-        <div class="person">
-          <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-          <p class="name">Pieter</p>
-          <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-        </div>
-        <div class="person">
-          <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-          <p class="name">Michiel</p>
-          <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-        </div>
-        <div class="person">
-          <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-          <p class="name">Simon</p>
-          <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-        </div>
-        <div class="aanhang">
-          <img class="rounded-circle aan-icon" src="{% static 'img/account_icon.png'%}"></img>
-          <p class="name">Mick</p>
-          <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-        </div>
-        <div class="person">
-          <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-          <p class="name">Dave</p>
-          <img class="cutlery" src="{% static 'img/cutlery.png'%}"></img>
-        </div>
-      </div> -->
-      <!-- {% include "posts/posteater_template.html" %}
-    {# {% endfor %}#}
-     <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-    <div class="day">
-      <h1>Monday</h1>
-      <h3>14 februari 2017</h3>
-      <div class="buttons">
-        <a class='button'>Koken</a>
-        <a class='button--inverse'>Eten</a>
-        <a class='button'>Niet</a>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-      <div class="person">
-        <img class="rounded-circle pers-icon" src="{% static 'img/account_icon.png'%}"></img>
-        <p class="name">Jouk</p>
-      </div>
-    </div>
-  </div>
-
-
-
+</script> -->
 {% endblock %}

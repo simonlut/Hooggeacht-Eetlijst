@@ -4,21 +4,27 @@
 <script src="{% static 'js/forms.js' %}"></script>
 
 {% block content %}
-<div class="row">
+<div class="row koken">
 
-<div  class="card cook-form col-sm-8">
+<div  class="col-sm-8 ">
+  <div class="card cook-form">
+
   <h2>Koken</h2>
   <form method="POST">
       {% csrf_token %}
       {% bootstrap_form form %}
-      <input type="submit" class="btn button button-cook form-button" value="Inschrijven">
+      <input type="submit" class="btn btn-primary form-button" value="Inschrijven">
   </form>
 </div>
-<div class="col-sm-4 card cook-form">
-  <h2>hi</h2>
+</div>
+<div class="col-sm-4 card">
+  <div class="cook-form">
+    <h2>hi</h2>
 
+  </div>
 
 </div>
 </div>
+
 
 {% endblock %}

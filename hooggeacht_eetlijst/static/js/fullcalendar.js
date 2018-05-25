@@ -64,13 +64,13 @@ var defaults = {
 	dayNames: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
 	dayNamesShort: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
 	buttonText: {
-		prev: "<span class='fc-text-arrow'>&lsaquo;</span>",
-		next: "<span class='fc-text-arrow'>&rsaquo;</span>",
+		prev: "<i class='fas fa-arrow-alt-circle-left fc-prev-button btn btn-primary'></i>",
+		next: "<i class='fas fa-arrow-alt-circle-right fc-next-button btn btn-primary'></i>",
 		prevYear: "<span class='fc-text-arrow'>&laquo;</span>",
 		nextYear: "<span class='fc-text-arrow'>&raquo;</span>",
-		today: 'today',
-		month: 'month',
-		week: 'week',
+		today: '<span class="btn btn-primary">Vandaag</span>',
+		month: '<span class="btn btn-primary">Maand</span>',
+		week: '<span class="btn btn-primary">Week</span>',
 		day: 'day'
 	},
 
@@ -793,6 +793,7 @@ function Header(calendar, options) {
 							var icon = options.theme ? smartProperty(options.buttonIcons, buttonName) : null; // why are we using smartProperty here?
 							var text = smartProperty(options.buttonText, buttonName); // why are we using smartProperty here?
 							var button = $(
+
 								"<span class='fc-button fc-button-" + buttonName + " " + tm + "-state-default'>" +
 									(icon ?
 										"<span class='fc-icon-wrap'>" +
